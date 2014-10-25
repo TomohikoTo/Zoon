@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class PlayState : StateInt {
-	// GameStateManagerのインスタンスを再利用できるよう準備
+	// GameStateManagerのインスタンスを再利用
 	private GameStateManager manager;
 	
 	public PlayState(GameStateManager GSManager) {

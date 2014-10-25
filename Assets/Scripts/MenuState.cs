@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class MenuState : StateInt { 
-	// StateManagerのインスタンスを再利用できるよう準備
+	// GameStateManagerのインスタンスを再利用
 	private GameStateManager manager;
 	
 	public MenuState(GameStateManager GSManager) {

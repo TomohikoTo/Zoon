@@ -3,9 +3,10 @@ using System.Collections;
 
 public interface StateInt 
 {
-	// UnityのUpdate()メソッドが呼び出します。
+	// Update()メソッド呼び出si.
+
 	void StateUpdate();
 	
-	// 描画に使います。
+	// 描画。
 	void Render();
 }
