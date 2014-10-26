@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 public class PlayerController : MonoBehaviour {
+	private GameObject Boy_anim;
 	private Animator animator;
 	private int WalkId;
-
 	public bool Jump = false;
 	public float JumpSpeed = 50.0f;
-		public float BaseSpeed = 5.0f;
-	public float RollSpeed = 5.0f;
-	public float PitchSpeed = 5.0f;
-	public float MaxSpeed = 10.0f;
+		public float BaseSpeed = 0.5f;
+	public float MoveSpeed = 0.5f;
+	public float DashSpeed = 2.0f;
+	public float MaxSpeed = 4.0f;
 	public float MinSpeed = 0.0f;
 	[HideInInspector]
 	public float PlayerSpeed;
@@ -19,22 +19,35 @@ public class PlayerController : MonoBehaviour {
 		}
 	// Update is called once per frame
 	void Update () {
+		if(Input.GetKey(KeyCode.RightControl) && MaxSpeed > MoveSpeed){
+			MoveSpeed *= DashSpeed;
+		} else if(Input.GetKeyUp(KeyCode.RightControl)){
+			MoveSpeed = BaseSpeed;
+		}
+
 		//transform.Translate(Vector3.forward * PlayerSpeed * 0.01f);
 		//x軸移動
 		if(Input.GetKey(KeyCode.LeftArrow)){
-			transform.Translate(-BaseSpeed,0.0f,0.0f);
+			transform.Translate(-MoveSpeed,0.0f,0.0f);
+			/*if( transform.rotation.y != 45){
+				transform.Rotate(0.0f,2f,0.0f);
+			} else if(transform.rotation.y == 90){
+			}
+			*/
 		}
 		if(Input.GetKey(KeyCode.RightArrow)){
-			transform.Translate(BaseSpeed,0.0f,0.0f);
+			transform.Translate(MoveSpeed,0.0f,0.0f);
 		}
 		//ピッチ運動
 		if(Input.GetKey(KeyCode.UpArrow)){
-			transform.Translate(0.0f,0.0f,BaseSpeed);
+			transform.Translate(0.0f,0.0f,MoveSpeed);
 		}
 		if(Input.GetKey(KeyCode.DownArrow)){
-			transform.Translate(0.0f,0.0f,-BaseSpeed);
+			transform.Translate(0.0f,0.0f,-MoveSpeed);
 		}
-
+		if(Input.GetKey(KeyCode.Space)){
+			Destroy.Boy_anim;
+		}
 		
 		// ジャンプ中でないときにマウス左ボタンが押されたらジャンプする
 		if (!Jump && Input.GetKey(KeyCode.W))

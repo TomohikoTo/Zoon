@@ -3,7 +3,7 @@ using System.Collections;
 
 public interface StateInt 
 {
-	// Update()メソッド呼び出si.
+	// Update()メソッド呼び出し
 
 	void StateUpdate();
 	

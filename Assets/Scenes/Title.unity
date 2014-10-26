@@ -218,7 +218,7 @@ GUIText:
   m_PixelOffset: {x: 0, y: 0}
   m_LineSpacing: 1
   m_TabSize: 5
-  m_Font: {fileID: 12800000, guid: 34442079bdde445518a259f596d794f5, type: 3}
+  m_Font: {fileID: 0}
   m_Material: {fileID: 0}
   m_FontSize: 100
   m_FontStyle: 0
@@ -295,6 +295,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1258953088}
   - 114: {fileID: 1258953087}
+  - 45: {fileID: 1258953089}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -325,6 +326,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!45 &1258953089
+Skybox:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1258953086}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: aa425b6ace61b5f429eea14c011100a9, type: 2}
 --- !u!1 &1640888780
 GameObject:
   m_ObjectHideFlags: 0
