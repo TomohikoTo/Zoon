@@ -2,7 +2,10 @@
 using System.Collections;
 public class PlayerController : MonoBehaviour {
 	public PauseState ps;
+	public float AnimState = 0;
+	GameObject player;
 	GameObject boy;
+	GameObject SpawnPoint;
 	GameObject flog;
 	public bool ReachGoal = false;
 	private Animator animator;
@@ -20,8 +23,11 @@ public class PlayerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		PlayerSpeed = BaseSpeed;
+
+		player = GameObject.Find("Player");
 		boy = GameObject.Find("Boy_anim");
 		flog = GameObject.Find("Stone_flog");
+		SpawnPoint = GameObject.FindWithTag("SpawnPoint");
 	}
 	// Update is called once per frame
 	public void Update () {
@@ -70,7 +76,10 @@ public class PlayerController : MonoBehaviour {
 			//manager.SwitchState(new MenuState(manager));    
 		}
 
+		if( player.transform.position.y < -50){
+			player.transform.position  = SpawnPoint.transform.position;
 
+		}
 	/*	//加減速
 		if(Input.GetKey(KeyCode.Q) && (PlayerSpeed < MaxSpeed)){
 			transform.Translate(0,BaseSpeed,0);

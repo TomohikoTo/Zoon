@@ -5,7 +5,7 @@ public class PlayerStateManager : MonoBehaviour {
 		
 		//ゲームの状態を保持
 		private PlayerInt activeState;
-		
+		public bool landing = true;
 		public static PlayerStateManager instance;
 		
 		void Awake()
