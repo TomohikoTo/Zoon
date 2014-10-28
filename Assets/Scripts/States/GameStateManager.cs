@@ -34,7 +34,7 @@ public class GameStateManager : MonoBehaviour {
 		if(activeState != null)
 			activeState.StateUpdate();
 	}
-	public void SwitchState(StateInt newState) //ここでエラー、直してください。
+	public void SwitchState(StateInt newState) 
 	{
 		activeState = newState;
 	}

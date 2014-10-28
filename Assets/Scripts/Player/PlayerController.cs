@@ -1,27 +1,33 @@
 ﻿using UnityEngine;
 using System.Collections;
 public class PlayerController : MonoBehaviour {
-	private GameObject Boy_anim;
+	public PauseState ps;
+	GameObject boy;
+	GameObject flog;
+	public bool ReachGoal = false;
 	private Animator animator;
 	private int WalkId;
 	public bool Jump = false;
-	public float JumpSpeed = 50.0f;
-		public float BaseSpeed = 0.5f;
-	public float MoveSpeed = 0.5f;
+	GameObject Player;
+	public float JumpSpeed = 1000.0f;
+		public float BaseSpeed = 0.1f;
+	public float MoveSpeed = 0.1f;
 	public float DashSpeed = 2.0f;
-	public float MaxSpeed = 4.0f;
+	public float MaxSpeed = 1.0f;
 	public float MinSpeed = 0.0f;
 	[HideInInspector]
 	public float PlayerSpeed;
 	// Use this for initialization
 	void Start () {
 		PlayerSpeed = BaseSpeed;
-		}
+		boy = GameObject.Find("Boy_anim");
+		flog = GameObject.Find("Stone_flog");
+	}
 	// Update is called once per frame
-	void Update () {
-		if(Input.GetKey(KeyCode.RightControl) && MaxSpeed > MoveSpeed){
+	public void Update () {
+		if( !Jump && Input.GetKey(KeyCode.RightControl) && MaxSpeed > MoveSpeed){
 			MoveSpeed *= DashSpeed;
-		} else if(Input.GetKeyUp(KeyCode.RightControl)){
+		} else if(Input.GetKeyUp(KeyCode.RightControl) || Jump){
 			MoveSpeed = BaseSpeed;
 		}
 
@@ -46,7 +52,8 @@ public class PlayerController : MonoBehaviour {
 			transform.Translate(0.0f,0.0f,-MoveSpeed);
 		}
 		if(Input.GetKey(KeyCode.Space)){
-			Destroy.Boy_anim;
+			//Object.Destroy(boy);
+			//Instantiate(flog);
 		}
 		
 		// ジャンプ中でないときにマウス左ボタンが押されたらジャンプする
@@ -54,8 +61,16 @@ public class PlayerController : MonoBehaviour {
 		{
 			Jump = true;
 			// オブジェクトの上方向に力を瞬間的に与える
-			rigidbody.AddForce(transform.up * JumpSpeed, ForceMode.Impulse);
+			rigidbody.AddForce(Vector3.up * JumpSpeed);
 		}
+
+		if(Input.GetKeyUp(KeyCode.Escape)) {
+			//Application.LoadLevel("Menu");
+		//	Instantiate(Pause, PauseWindow.position , PauseWindow.rotation);
+			//manager.SwitchState(new MenuState(manager));    
+		}
+
+
 	/*	//加減速
 		if(Input.GetKey(KeyCode.Q) && (PlayerSpeed < MaxSpeed)){
 			transform.Translate(0,BaseSpeed,0);
@@ -71,6 +86,12 @@ public class PlayerController : MonoBehaviour {
 		if (collision.gameObject.tag == "Floor")
 		{
 			Jump = false;
+		}
+
+		if (collision.gameObject.tag == "Goal")
+		{
+			ReachGoal = true;
+
 		}
 	}
 }
