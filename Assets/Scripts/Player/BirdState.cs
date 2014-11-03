@@ -14,7 +14,7 @@ public class BirdState : MonoBehaviour , PlayerInt  {
 		//初期化
 		manager = PSManager;
 		player = GameObject.Find("Player");
-		boy = GameObject.Find("Boy_anim");
+
 		SpawnPoint = GameObject.FindWithTag("SpawnPoint");
 		
 	}
@@ -45,7 +45,16 @@ public class BirdState : MonoBehaviour , PlayerInt  {
 		{
 
 			// オブジェクトの上方向に力を瞬間的に与える
-			player.rigidbody.AddForce(Vector3.up * 20);
+			if( manager.landing)
+				manager.landing = false;
+			player.rigidbody.AddForce(Vector3.up * 30);
+		}
+		if (Input.GetKey(KeyCode.S))
+		{
+			
+			// オブジェクトの上方向に力を瞬間的に与える
+			if( !manager.landing)
+			player.rigidbody.AddForce(Vector3.down * 30);
 		}
 		if(Input.GetKey(KeyCode.Space)){
 			manager.SwitchState(new HumanState(manager));    
