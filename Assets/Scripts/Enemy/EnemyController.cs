@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EnemyController : EnemyAdvancedFSM 
 {
-	private PlayerStateManager psmanager;
+	private PlayerStateManager psm;
 	private int health;
 	
 	//NPC FSMの初期化
@@ -15,6 +15,7 @@ public class EnemyController : EnemyAdvancedFSM
 		elapsedTime = 0.0f;
 		
 		GameObject objPlayer = GameObject.FindGameObjectWithTag("Player");
+		psm = GameObject.Find ("Player").GetComponent<PlayerStateManager>();
 		playerTransform = objPlayer.transform;
 		
 		if (!playerTransform)
@@ -82,9 +83,9 @@ public class EnemyController : EnemyAdvancedFSM
 	void OnCollisionEnter(Collision collision)
 	{
 		//hpを減少させます
-		if ( !psmanager.landing && collision.gameObject.tag == "Player")
+		if ( !psm.landing && collision.gameObject.tag == "Player")
 		{
-			Destroy(gameObject, 1.5f);
+			Destroy(gameObject);
 		}
 	}
 	
