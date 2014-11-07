@@ -18,6 +18,6 @@ Space:状態変化
 使用アセット（フリー） ----- -----<br>
 Boy_anim<br>
 stone_ffog<br>
-Grass_pattern_05<br>
+Ground_textures_pack<br>
 Woodchips_Mat<br>
 WispySkyboxCubeMat<br>
