@@ -5,7 +5,7 @@ public class PlayState : StateInt {
 	// GameStateManagerのインスタンスを再利用
 	private GameStateManager manager;
 	public PlayerStateManager psm;
-
+	GameObject player;
 		
 
 	public PlayState(GameStateManager GSManager) {
@@ -25,6 +25,13 @@ public class PlayState : StateInt {
 
 		}
 		
+		if(Input.GetKeyUp(KeyCode.Escape)) {
+			Application.LoadLevel("Menu");
+			
+			manager.SwitchState(new MenuState(manager));  
+			player = GameObject.Find("Player");
+			Object.Destroy(player);
+		}
 	}
 	
 	public void Render() { 

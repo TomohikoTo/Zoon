@@ -20,7 +20,7 @@ public class HumanState : MonoBehaviour , PlayerInt   {
 	[HideInInspector]
 	public float PlayerSpeed;
 	private PlayerStateManager manager;
-	
+	private GameStateManager GSManager;
 	public HumanState(PlayerStateManager PSManager) {
 		//初期化
 		manager = PSManager;
@@ -68,12 +68,7 @@ public class HumanState : MonoBehaviour , PlayerInt   {
 			// オブジェクトの上方向に力を瞬間的に与える
 			player.rigidbody.AddForce(Vector3.up * JumpSpeed);
 		}
-		
-		if(Input.GetKeyUp(KeyCode.Escape)) {
-			//Application.LoadLevel("Menu");
-			//	Instantiate(Pause, PauseWindow.position , PauseWindow.rotation);
-			//manager.SwitchState(new MenuState(manager));    
-		}
+
 		
 		if( player.transform.position.y < -50){
 			player.transform.position  = SpawnPoint.transform.position;

@@ -5,6 +5,7 @@ public class PlayerStateManager : MonoBehaviour {
 		
 		//ゲームの状態を保持
 		private PlayerInt activeState;
+		public bool HaveFeather = false;
 		public bool landing = false;
 		public bool ReachGoal = false;
 		public static PlayerStateManager psm;
@@ -55,6 +56,11 @@ public class PlayerStateManager : MonoBehaviour {
 			ReachGoal = true;
 
 			
+		}
+
+		if(collision.gameObject.tag == "Block")
+		{
+			HaveFeather = true;
 		}
 
 	}

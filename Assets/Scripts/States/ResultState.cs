@@ -2,13 +2,15 @@
 using System.Collections;
 
 public class ResultState : StateInt {
-
+	GameObject player;
 	// GameStateManagerのインスタンスを再利用
 	private GameStateManager manager;
 	
 	public ResultState(GameStateManager GSManager) {
 		//初期化
 		manager = GSManager;
+		player = GameObject.Find("Player");
+		Object.Destroy(player);
 	}
 	
 	public void StateUpdate() { 

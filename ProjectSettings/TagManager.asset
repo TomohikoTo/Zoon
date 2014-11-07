@@ -6,6 +6,9 @@ TagManager:
   - Floor
   - Goal
   - SpawnPoint
+  - Block
+  - Enemy
+  - PatrolPoint
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
