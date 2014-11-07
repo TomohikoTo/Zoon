@@ -15,9 +15,9 @@ Space:状態変化
 <br>
 開発環境　Unity ver 4.2.2<br>
 <br>
-使用アセット（フリー） ----- ----- 
+使用アセット（フリー） ----- -----<br>
 Boy_anim<br>
-stone_flog<br>
+stone_ffog<br>
 Grass_pattern_05<br>
 Woodchips_Mat<br>
 WispySkyboxCubeMat<br>
