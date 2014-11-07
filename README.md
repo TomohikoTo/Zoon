@@ -17,7 +17,7 @@ Space:状態変化
 <br>
 使用アセット（フリー） ----- -----<br>
 Boy_anim<br>
-stone_ffog<br>
+stone_frog<br>
 Ground_textures_pack<br>
 Woodchips_Mat<br>
 WispySkyboxCubeMat<br>
