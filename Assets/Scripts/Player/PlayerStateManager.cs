@@ -4,6 +4,9 @@ using System.Collections;
 public class PlayerStateManager : MonoBehaviour {
 		
 		//ゲームの状態を保持
+		public Transform from;
+		public Transform to;
+		public float speed = 0.1F;
 		private PlayerInt activeState;
 		public bool HaveFeather = false;
 		public bool landing = false;
@@ -37,6 +40,7 @@ public class PlayerStateManager : MonoBehaviour {
 		{
 			if(activeState != null)
 				activeState.StateUpdate();
+		transform.rotation = Quaternion.Slerp(from.rotation, to.rotation, Time.time * speed);
 		}
 		public void SwitchState(PlayerInt newState) 
 		{
