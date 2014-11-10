@@ -1,5 +1,4 @@
-﻿namespace Assets.Code.Interface
-{
+﻿namespace zoon {
 
  public interface FMS
 	

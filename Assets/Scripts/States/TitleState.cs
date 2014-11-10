@@ -1,31 +1,34 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TitleState : StateInt {
-	public Texture2D titleTexture;
-	private GameStateManager manager;
-	
-	public TitleState(GameStateManager GSManager) {
-		//初期化
-		manager = GSManager;
-		Time.timeScale = 0;
-	}
-	
-	public void StateUpdate() {
+namespace zoon {
 
-				//更新処理
-		if(Input.anyKey) { // 何らかのキーを押すとMenuStateに遷移
+	public class TitleState : StateInt {
+		public Texture2D titleTexture;
+		private GameStateManager manager;
+		
+		public TitleState(GameStateManager GSManager) {
+			//初期化
+			manager = GSManager;
+			Time.timeScale = 0;
+		}
+		
+		public void StateUpdate() {
 
-			Debug.Log("Begin State");
-			manager.SwitchState(new MenuState(manager));
-			Application.LoadLevel("Menu");
+					//更新処理
+			if(Input.anyKey) { // 何らかのキーを押すとMenuStateに遷移
+
+				Debug.Log("Begin State");
+				manager.SwitchState(new MenuState(manager));
+				Application.LoadLevel("Menu");
+			}
+		}
+
+		public void Render() {
+			//描画等
+
 		}
 	}
 
-	public void Render() {
-		//描画等
 
-	}
 }
-
-
