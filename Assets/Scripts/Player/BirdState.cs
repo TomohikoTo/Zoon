@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class BirdState : PlayerInt  {
+	GUITexture bird_icon ;
 	public PauseState ps;
 	public float AnimState = 0;
 	GameObject player;
@@ -59,5 +60,14 @@ public class BirdState : PlayerInt  {
 		if(Input.GetKey(KeyCode.Space)){
 			manager.SwitchState(new HumanState(manager));    
 		}
+	}
+	void OnGUI() {
+
+		
+		GUI.DrawTexture(
+			Rect(10,10,60,60), bird_icon, 
+			ScaleMode.ScaleToFit, true, 10.0f);
+	}
+	public void Render(){
 	}
 }
