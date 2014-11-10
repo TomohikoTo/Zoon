@@ -6,6 +6,9 @@ namespace zoon {
 	[Serializable]
 	public class CameraMoverController
 	{
+		private float x = 0.0f;
+		private float y = 0.0f;
+		private float z = 0.0f;
 
 		public Vector3 angle = Vector3.zero;
 		public Vector3 cPosition = Vector3.zero;
@@ -22,30 +25,31 @@ namespace zoon {
 		public void CalcAngle() {
 			CalcAngleX ();
 			CalcAngleY ();
+			SetAngle ();
 		}
 
-		public Boolean IsClickedQ(){
+		public virtual Boolean IsClickedQ(){
 			if (Input.GetKey (KeyCode.Q)) {		
 				return true;
 			}
 			return false;
 		}
 
-		public Boolean IsClickedE(){
+		public virtual Boolean IsClickedE(){
 			if (Input.GetKey (KeyCode.E)) {		
 				return true;
 			}
 			return false;
 		}
 
-		public Boolean IsClickedR(){
+		public virtual Boolean IsClickedR(){
 			if (Input.GetKey (KeyCode.R)) {		
 				return true;
 			}
 			return false;
 		}
 
-		public Boolean IsClickedF(){
+		public virtual Boolean IsClickedF(){
 			if (Input.GetKey (KeyCode.Q)) {		
 				return true;
 			}
@@ -55,24 +59,24 @@ namespace zoon {
 		private void CalcAngleY() {
 
 			if (IsClickedQ()) {
-				angle.y -= 5f;
+				y -= 5f;
 			}
 			if (IsClickedE ()) {
-				angle.y += 5f;
+				y += 5f;
 			}
 		}
 
 		private void CalcAngleX() {
 
 			if (IsClickedR ()) {
-				if (angle.x > -30) {
-					angle.x -= 5f;
+				if (x > -30) {
+					x -= 5f;
 				}
 				
 			}
 			if (IsClickedF ()) {
-				if (angle.x < 30) {
-					angle.x += 5f;
+				if (x < 30) {
+					x += 5f;
 				}
 			}
 		}
@@ -81,12 +85,18 @@ namespace zoon {
 			return this.angle;
 		}
 
-		public float GetAngleY() {
-			return this.angle.y;
+		public void SetAngle() {
+			this.angle.x = x;
+			this.angle.y = y;
+			this.angle.z = z;
 		}
 
-		public float GetAngleX() {
-			return this.angle.x;
+		public float GetY() {
+			return y;
+		}
+
+		public float GetX() {
+			return x;
 		}
 
 	}

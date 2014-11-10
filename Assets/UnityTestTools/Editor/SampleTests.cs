@@ -4,7 +4,7 @@ using System.Threading;
 using NUnit.Framework;
 using UnityEngine;
 
-namespace Zoon
+namespace zoon
 {
     [TestFixture]
     [Category("Sample Tests")]

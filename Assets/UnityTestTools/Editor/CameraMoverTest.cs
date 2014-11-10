@@ -22,34 +22,22 @@ namespace zoon.Test
 		}
 		
 		[Test]
-		[Category ("Mover Test")]
-		public void ScoreTest() {
+		[Category ("Mover Test Click F")]
+		public void ClickFTest() {
 			mover.IsClickedF ().Returns (true);
+			mover.CalcAngle ();
+			Assert.That (5.0f, Is.EqualTo (mover.GetX()));
+		}
 
-			Assert.That ("Score :100", Is.EqualTo(text));
-		}
-		
 		[Test]
-		[Category ("Mover Range Test")]
-		public void ScoreTest([Range(-4,4,1)]int x) {
-			string text = mover.GetX(x);
-			Assert.That ("Score :" + x.ToString(), Is.EqualTo(text));
+		[Category ("Mover Test Click R")]
+		public void ClickRTest() {
+			mover.IsClickedR ().Returns (true);
+			mover.CalcAngle ();
+			Assert.That (-5.0f, Is.EqualTo (mover.GetX()));
 		}
-		
-		[Test]
-		[Category ("Score Format Test")]
-		public void ScoreFormatTest() {
-			string text = imover.CameraRotation ();
-			Assert.That ("Score :100", Is.EqualTo(text));
-		}
-		
-		[Test]
-		[Category ("Mover Format Test")]
-		public void GetGameDataTest() {
-			string text = score.GetScoreText (iscore.GetGameData());
-			Assert.That ("Score :100", Is.EqualTo(text));
-		}
-		
+
+
 		private ICameraMoverController GetEffectMock () {
 			return Substitute.For<ICameraMoverController> ();
 		}
