@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-public class HumanState : MonoBehaviour , PlayerInt   {
+public class HumanState :  PlayerInt   {
 	
 	public PauseState ps;
 	GameObject player;

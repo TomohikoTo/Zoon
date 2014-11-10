@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BirdState : MonoBehaviour , PlayerInt  {
+public class BirdState : PlayerInt  {
 	public PauseState ps;
 	public float AnimState = 0;
 	GameObject player;

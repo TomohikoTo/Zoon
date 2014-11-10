@@ -3,19 +3,23 @@ using System.Collections;
 
 public class PlayState : StateInt {
 	// GameStateManagerのインスタンスを再利用
+	public PlayData pd;
 	private GameStateManager manager;
 	public PlayerStateManager psm;
-	GameObject player;
-		
+
+	public bool PositionReset = false;
 
 	public PlayState(GameStateManager GSManager) {
 		//初期化
 		manager = GSManager;
 
+	
 	}
 	
 	public void StateUpdate() { 
+
 		psm = GameObject.Find ("Player").GetComponent<PlayerStateManager>();
+
 		//更新処理
 		if( psm.ReachGoal == true){
 			Application.LoadLevel("Result");
@@ -29,9 +33,9 @@ public class PlayState : StateInt {
 			Application.LoadLevel("Menu");
 			
 			manager.SwitchState(new MenuState(manager));  
-			player = GameObject.Find("Player");
-			Object.Destroy(player);
+
 		}
+
 	}
 	
 	public void Render() { 

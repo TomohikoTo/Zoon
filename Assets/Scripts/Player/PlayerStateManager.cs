@@ -4,8 +4,8 @@ using System.Collections;
 public class PlayerStateManager : MonoBehaviour {
 		
 		//ゲームの状態を保持
-		public Transform from;
-		public Transform to;
+		//public Transform from;
+		//public Transform to;
 		public float speed = 0.1F;
 		private PlayerInt activeState;
 		public bool HaveFeather = false;
@@ -31,16 +31,14 @@ public class PlayerStateManager : MonoBehaviour {
 		void Start()
 		{
 			activeState = new HumanState(this);
-			player = GameObject.Find("Player");
-			SpawnPoint = GameObject.FindWithTag("SpawnPoint");
-			player.transform.position  = SpawnPoint.transform.position;
+			
 			
 		}
 		void Update()
 		{
 			if(activeState != null)
 				activeState.StateUpdate();
-		transform.rotation = Quaternion.Slerp(from.rotation, to.rotation, Time.time * speed);
+
 		}
 		public void SwitchState(PlayerInt newState) 
 		{
@@ -68,8 +66,5 @@ public class PlayerStateManager : MonoBehaviour {
 		}
 
 	}
-	void OnBecameInvisible() {
-		if(ReachGoal)
-		enabled = false;
-	}
+
 	}

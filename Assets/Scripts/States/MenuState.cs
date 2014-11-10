@@ -4,10 +4,12 @@ using System.Collections;
 public class MenuState : StateInt { 
 	// GameStateManagerのインスタンスを再利用
 	private GameStateManager manager;
-	
+	public GameObject player;
 	public MenuState(GameStateManager GSManager) {
 		//初期化
 		manager = GSManager;
+
+
 	}
 	
 	public void StateUpdate() { 
