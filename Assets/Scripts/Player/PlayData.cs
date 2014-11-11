@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class PlayData : MonoBehaviour {
+
 	GameObject player;
 	GameObject SpawnPoint;
 	public bool resetCheck = false;
@@ -20,6 +21,8 @@ public class PlayData : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+	
+			guiText.text = "HP"+ HP;
 	
 	}
 

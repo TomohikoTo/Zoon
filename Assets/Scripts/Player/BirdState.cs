@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class BirdState : PlayerInt  {
-	GUITexture bird_icon ;
+	Texture2D bird_icon ;
 	public PauseState ps;
 	public float AnimState = 0;
 	GameObject player;
@@ -65,7 +65,7 @@ public class BirdState : PlayerInt  {
 
 		
 		GUI.DrawTexture(
-			Rect(10,10,60,60), bird_icon, 
+			new Rect(10,10,60,60), bird_icon, 
 			ScaleMode.ScaleToFit, true, 10.0f);
 	}
 	public void Render(){

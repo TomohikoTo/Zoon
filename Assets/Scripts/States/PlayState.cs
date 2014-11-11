@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PlayState : StateInt {
 	// GameStateManagerのインスタンスを再利用
+
 	public PlayData pd;
 	private GameStateManager manager;
 	public PlayerStateManager psm;

@@ -647,8 +647,8 @@ GameObject:
   - 92: {fileID: 211774813}
   - 124: {fileID: 211774812}
   - 81: {fileID: 211774811}
-  - 114: {fileID: 211774810}
   - 45: {fileID: 211774809}
+  - 114: {fileID: 211774810}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -680,17 +680,17 @@ Skybox:
 --- !u!114 &211774810
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400002, guid: 8b76e0bdf9bdfa3408c271dfe890c9e0,
-    type: 2}
-  m_PrefabInternal: {fileID: 979592591}
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 211774807}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32ff7c3705141f747ba33de2fa4fecb9, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f921c0b7fcdf4141a7330ffd87aa890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: {x: 0, y: 0, z: 0}
-  cPosition: {x: 0, y: 0, z: 0}
+  controller:
+    angle: {x: 0, y: 0, z: 0}
+    cPosition: {x: 0, y: 0, z: 0}
 --- !u!81 &211774811
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2405,7 +2405,13 @@ Prefab:
       propertyPath: m_RootOrder
       value: 16
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5400000, guid: 8b76e0bdf9bdfa3408c271dfe890c9e0, type: 2}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11400000, guid: 8b76e0bdf9bdfa3408c271dfe890c9e0, type: 2}
+    - {fileID: 11400002, guid: 8b76e0bdf9bdfa3408c271dfe890c9e0, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 8b76e0bdf9bdfa3408c271dfe890c9e0, type: 2}
   m_RootGameObject: {fileID: 1139129626}
   m_IsPrefabParent: 0
@@ -3177,19 +3183,14 @@ Transform:
 --- !u!114 &1139129628
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400000, guid: 8b76e0bdf9bdfa3408c271dfe890c9e0,
-    type: 2}
-  m_PrefabInternal: {fileID: 979592591}
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1139129626}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fd1f9a321314d14ab4dd5fefa1a94d8, type: 3}
+  m_Script: {fileID: 11500000, guid: e817f0ca71ef09e49a05814288987cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: .100000001
-  HaveFeather: 0
-  landing: 0
-  ReachGoal: 0
 --- !u!136 &1139129629
 CapsuleCollider:
   m_ObjectHideFlags: 0
