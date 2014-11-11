@@ -1,29 +1,26 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System;
 
+[Serializable]
 public class PlayerController {
-
-
 	private float x = 0.0f;
 	private float y = 0.0f;
 	private float z = 0.0f;
-	private bool landing = true;
+	public bool landing = true;
 	public Vector3 position = Vector3.zero;
 	public IntPlayerController playerController;
 
 	public PauseState ps;
 	public float AnimState = 0;
-	private int WalkId;
-	public bool Jump = false;
-	GameObject Player;
-	public float JumpSpeed = 1000.0f;
-		public float BaseSpeed = 0.1f;
+	private float JumpMove = 0.0f;
+	public float JumpSpeed = 10.0f;
+	public float BaseSpeed = 0.1f;
 	public float MoveSpeed = 0.1f;
 	public float DashSpeed = 2.0f;
 	public float MaxSpeed = 1.0f;
 	public float MinSpeed = 0.0f;
 	[HideInInspector]
-	public float PlayerSpeed;
+	public float PlayerSpeed = 0.1f;
 	public PlayerController (){
 	}
 	public void SetPlayerController(IntPlayerController playerController) {
@@ -35,80 +32,74 @@ public class PlayerController {
 
 	public void PlayerMove() {
 		MoveX ();
-		MoveY ();
+		MoveZ ();
 		SetPosition ();
+
 	}
-	// Update is called once per frame
-	public void Update () {
-		if( !Jump && Input.GetKey(KeyCode.RightControl) && MaxSpeed > MoveSpeed){
-			MoveSpeed *= DashSpeed;
-		} else if(Input.GetKeyUp(KeyCode.RightControl) || Jump){
-			MoveSpeed = BaseSpeed;
-		}
-
-
-
-	//	if( player.transform.position.y < -50){
-	//		player.transform.position  = SpawnPoint.transform.position;
-
-	//	}
 	
+	public void HumanSkill() {
+		Dash();
+		GetLanding();
+		Jump();
+		SetSpeed ();
+		SetJump ();
 	}
-
 
 
 	//プレイヤーのキー入力関連
-	public virtual bool PressLeftArrow(){
+	//左へ移動
+	public virtual Boolean PressLeftArrow(){
 		if (Input.GetKey (KeyCode.LeftArrow)) {
 			return true;
 		}
 		return false;
 	}
-	public virtual bool PressRightArrow(){
+	//右へ移動
+	public virtual Boolean PressRightArrow(){
 		if (Input.GetKey (KeyCode.RightArrow)) {
 			return true;
 		}
 		return false;
 	}
-	public virtual bool PressUpArrow(){
+	//前へ移動
+	public virtual Boolean PressUpArrow(){
 		if (Input.GetKey (KeyCode.UpArrow)) {
 			return true;
 		}
 		return false;
 	}
-	public virtual bool PressDownArrow(){
+	//後ろへ移動
+	public virtual Boolean PressDownArrow(){
 		if (Input.GetKey (KeyCode.DownArrow)) {
 			return true;
 		}
 		return false;
 	}
-
-	public virtual bool PressW(){
+	//ジャンプ
+	public virtual Boolean PressW(){
 		if ( landing && Input.GetKey (KeyCode.W)) {
-			landing = false;
+			return true;
+		}
+		return false;
+	}
+	//ダッシュ
+	public virtual Boolean PressD(){
+		if ( landing && Input.GetKey (KeyCode.D) && MaxSpeed > MoveSpeed) {
 			return true;
 		}
 		return false;
 	}
 
-	public virtual bool PressD(){
-		if ( landing && Input.GetKey (KeyCode.D) && MaxSpeed > MoveSpeed) {
-			MoveSpeed *= DashSpeed;
-			return true;
-		}
-		return false;
-	}
 	//プレイヤーのＸ軸移動
 	private void MoveX() {
 		if (PressLeftArrow() ) {
-
 				x -= MoveSpeed;
-
 		}
 		if ( PressRightArrow()) {
 			x += MoveSpeed;
 		}
 	}
+	//プレイヤーのＺ軸移動
 	private void MoveZ() {
 		if (PressUpArrow()) {
 			z += MoveSpeed;
@@ -117,20 +108,37 @@ public class PlayerController {
 			z -= MoveSpeed;
 		}
 	}
-
-	private void MoveY() {
-
+	//プレイヤーのＹ軸移動
+	private void Jump() {
 		if (PressW()) {
-			y += JumpSpeed;
+			//landing = false;
+			JumpMove += JumpSpeed;
 		}
 	}
+	//ダッシュによる移動速度の上昇
+	private void Dash() {
+		if (PressD ()) {
+			MoveSpeed *= DashSpeed;
+		}
+	}
+
+
+	//プレイヤーの移動速度のセッター
+	public void SetSpeed() {
+		this.PlayerSpeed = MoveSpeed;
+	}
+	//プレイヤーのポジションのセッター
 	public void SetPosition() {
 		this.position.x = x;
 		this.position.y = y;
 		this.position.z = z;
 	}
+
 	public Vector3 GetPosition(){
 		return this.position;
+	}
+	public float GetSpeed(){
+		return PlayerSpeed;
 	}
 
 	public float GetX() {
@@ -145,8 +153,14 @@ public class PlayerController {
 		return z;
 	}
 
-	public bool SetLanding() {
-		return this.landing = true;
+	public Boolean SetJump(){
+		return true;
+	}
+	public float GetJump(){
+		return this.JumpMove;
+	}
+	public void SetLanding() {
+		landing = true;
 	}
 	public bool GetLanding() {
 		return this.landing;
