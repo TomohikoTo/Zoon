@@ -11,11 +11,13 @@
 /*.pidb
 /*.booproj
 
+UnityTestTools/
+Nature/
+CloudSystem/
 Fonts/
 Materials/
 Standard Assets/
 Substances_Free/
 Space Shooter/
 Particles/
-UnityTestTools/
-CloudSystem/
+

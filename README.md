@@ -9,15 +9,8 @@
 ↑:前へ移動<br>
 ↓:後ろへ移動<br>
 W:ジャンプ<br>
-
-Space:状態変化
 <br>
 <br>
 開発環境　Unity ver 4.2.2<br>
 <br>
-使用アセット（フリー） ----- -----<br>
-Boy_anim<br>
-stone_frog<br>
-Ground_textures_pack<br>
-Woodchips_Mat<br>
-WispySkyboxCubeMat<br>
+使用アセット（フリー） ----- ----- 
