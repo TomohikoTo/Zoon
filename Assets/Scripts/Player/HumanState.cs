@@ -1,41 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-<<<<<<< HEAD
-public class HumanState :  PlayerInt   {
 
 
-	public PauseState ps;
-	GameObject player;
-	GameObject SpawnPoint;
-	public bool ReachGoal = false;
-	private Animator animator;
-	private int WalkId;
-	public bool landing = false;
-	GameObject Player;
-	public float JumpSpeed = 1000.0f;
-	public float BaseSpeed = 0.1f;
-	public float MoveSpeed = 0.1f;
-	public float DashSpeed = 2.0f;
-	public float MaxSpeed = 0.4f;
-	public float MinSpeed = 0.0f;
-	[HideInInspector]
-	public float PlayerSpeed;
-	private PlayerStateManager manager;
-	private GameStateManager GSManager;
-	public HumanState(PlayerStateManager PSManager) {
-		//初期化
-		manager = PSManager;
-		player = GameObject.Find("Player");
-		SpawnPoint = GameObject.FindWithTag("SpawnPoint");
-=======
 
-namespace zoon {
 
 	public class HumanState : MonoBehaviour , PlayerInt   {
->>>>>>> TB
+
 		
-		public PauseState ps;
+
 		GameObject player;
 		GameObject SpawnPoint;
 		public bool ReachGoal = false;
@@ -123,13 +96,7 @@ namespace zoon {
 				
 			}
 		}
-	}
 
-<<<<<<< HEAD
 
-	public void Render(){
-	}
+
 }
-=======
-}
->>>>>>> TB

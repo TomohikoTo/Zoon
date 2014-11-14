@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-<<<<<<< HEAD
+
 public class MenuState : StateInt { 
 	// GameStateManagerのインスタンスを再利用
 	private GameStateManager manager;
@@ -15,21 +15,7 @@ public class MenuState : StateInt {
 	
 	public void StateUpdate() { 
 		//更新処理
-=======
-namespace zoon {
 
-	public class MenuState : StateInt { 
-		// GameStateManagerのインスタンスを再利用
-		private GameStateManager manager;
-		
-		public MenuState(GameStateManager GSManager) {
-			//初期化
-			manager = GSManager;
-		}
-		
-		public void StateUpdate() { 
-			//更新処理
->>>>>>> TB
 
 		}
 		
@@ -44,5 +30,4 @@ namespace zoon {
 	}
 
 
-}
 

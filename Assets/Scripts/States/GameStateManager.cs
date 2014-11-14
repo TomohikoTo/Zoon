@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace zoon {
+
 
 	public class GameStateManager : MonoBehaviour {
 
@@ -40,6 +40,6 @@ namespace zoon {
 		{
 			activeState = newState;
 		}
-	}
+
 
 }

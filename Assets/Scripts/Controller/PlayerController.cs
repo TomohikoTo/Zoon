@@ -10,7 +10,7 @@ public class PlayerController {
 	public Vector3 position = Vector3.zero;
 	public IntPlayerController playerController;
 
-	public PauseState ps;
+
 	public float AnimState = 0;
 	private float JumpMove = 0.0f;
 	public float JumpSpeed = 10.0f;

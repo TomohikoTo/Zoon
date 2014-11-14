@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-<<<<<<< HEAD
+
 public class PlayerStateManager : MonoBehaviour {
 		
 		//ゲームの状態を保持
@@ -17,22 +17,7 @@ public class PlayerStateManager : MonoBehaviour {
 		GameObject SpawnPoint;
 		void Awake()
 		{
-=======
-namespace zoon {
 
-	public class PlayerStateManager : MonoBehaviour {
->>>>>>> TB
-			
-			//ゲームの状態を保持
-			private PlayerInt activeState;
-			public bool HaveFeather = false;
-			public bool landing = false;
-			public bool ReachGoal = false;
-			public static PlayerStateManager psm;
-			GameObject player;
-			GameObject SpawnPoint;
-			void Awake()
-			{
 				
 			if(psm == null) {
 				psm = this;
@@ -41,28 +26,9 @@ namespace zoon {
 					DestroyImmediate(gameObject);
 				}
 				
-			}
-			
-
-<<<<<<< HEAD
-		
-		void Start()
-		{
-			activeState = new HumanState(this);
-			
-			
 		}
-		void Update()
-		{
-			if(activeState != null)
-				activeState.StateUpdate();
-
-		}
-		public void SwitchState(PlayerInt newState) 
-		{
-			activeState = newState;
-		}
-=======
+			
+	
 			
 			void Start()
 			{
@@ -81,7 +47,7 @@ namespace zoon {
 			{
 				activeState = newState;
 			}
->>>>>>> TB
+
 
 		private void OnCollisionEnter(Collision collision)
 		{
@@ -110,8 +76,3 @@ namespace zoon {
 		}
 	}
 
-<<<<<<< HEAD
-	}
-=======
-}
->>>>>>> TB

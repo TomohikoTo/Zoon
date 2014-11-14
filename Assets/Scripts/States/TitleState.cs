@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace zoon {
+
 
 	public class TitleState : StateInt {
 		public Texture2D titleTexture;
@@ -28,7 +28,7 @@ namespace zoon {
 			//描画等
 
 		}
-	}
+
 
 
 }

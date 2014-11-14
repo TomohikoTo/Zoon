@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace zoon {
 
-<<<<<<< HEAD
+	public class PlayData : MonoBehaviour {
+
 	GameObject player;
 	GameObject SpawnPoint;
 	public bool resetCheck = false;
@@ -30,20 +30,7 @@ namespace zoon {
 	public void playReset(){
 
 		player.transform.position  = SpawnPoint.transform.position;
-=======
-	public class PlayData : MonoBehaviour {
 
-
-		// Use this for initialization
-		void Start () {
-		
-		}
-		
-		// Update is called once per frame
-		void Update () {
-		
-		}
->>>>>>> TB
 	}
 
 }

@@ -1,27 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-<<<<<<< HEAD
-public class BirdState : PlayerInt  {
-	Texture2D bird_icon ;
-	public PauseState ps;
-	public float AnimState = 0;
-	GameObject player;
-	GameObject boy;
-	GameObject SpawnPoint;
-	public float MoveSpeed = 0.1f;
-	private PlayerStateManager manager;
-	
-	public BirdState(PlayerStateManager PSManager) {
-		//初期化
-		manager = PSManager;
-		player = GameObject.Find("Player");
-=======
-namespace zoon {
->>>>>>> TB
 
-	public class BirdState : MonoBehaviour , PlayerInt  {
-		public PauseState ps;
+
+
+
+	public class BirdState :  PlayerInt  {
+
 		public float AnimState = 0;
 		GameObject player;
 		GameObject boy;
@@ -79,18 +64,6 @@ namespace zoon {
 				manager.SwitchState(new HumanState(manager));    
 			}
 		}
-	}
-<<<<<<< HEAD
-	void OnGUI() {
 
-		
-		GUI.DrawTexture(
-			new Rect(10,10,60,60), bird_icon, 
-			ScaleMode.ScaleToFit, true, 10.0f);
-	}
-	public void Render(){
-	}
-=======
 
->>>>>>> TB
 }
