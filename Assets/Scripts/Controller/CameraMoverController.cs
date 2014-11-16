@@ -50,7 +50,7 @@ namespace zoon {
 		}
 
 		public virtual Boolean IsClickedF(){
-			if (Input.GetKey (KeyCode.Q)) {		
+			if (Input.GetKey (KeyCode.F)) {		
 				return true;
 			}
 			return false;
