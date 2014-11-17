@@ -6,7 +6,7 @@ using System.Collections;
 	public class GameStateManager : MonoBehaviour {
 
 		//ゲームの状態を保持
-		private StateInt activeState;
+		public StateInt activeState;
 
 		public static GameStateManager instance;
 		
