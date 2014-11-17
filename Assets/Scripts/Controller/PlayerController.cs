@@ -9,11 +9,8 @@ public class PlayerController {
 	public bool landing = true;
 	public Vector3 position = Vector3.zero;
 	public IntPlayerController playerController;
-
-
-	public float AnimState = 0;
-	private float JumpMove = 0.0f;
-	public float JumpSpeed = 10.0f;
+	
+	public float JumpSpeed = 100.0f;
 	public float BaseSpeed = 0.1f;
 	public float MoveSpeed = 0.1f;
 	public float DashSpeed = 2.0f;
@@ -112,7 +109,9 @@ public class PlayerController {
 	private void Jump() {
 		if (PressW()) {
 			//landing = false;
-			JumpMove += JumpSpeed;
+			position.y += JumpSpeed ;
+			landing = false;
+
 		}
 	}
 	//ダッシュによる移動速度の上昇
@@ -130,7 +129,12 @@ public class PlayerController {
 	//プレイヤーのポジションのセッター
 	public void SetPosition() {
 		this.position.x = x;
-		this.position.y = y;
+
+		if( !landing){
+			this.position.y += Physics.gravity.y * Time.deltaTime;
+		} else {
+			//this.position.y = y;
+		}
 		this.position.z = z;
 	}
 
@@ -157,7 +161,7 @@ public class PlayerController {
 		return true;
 	}
 	public float GetJump(){
-		return this.JumpMove;
+		return this.JumpSpeed;
 	}
 	public void SetLanding() {
 		landing = true;
