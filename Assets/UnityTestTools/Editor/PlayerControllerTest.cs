@@ -52,7 +52,7 @@ public class PlayerControllerTest  {
 	public void ClickWTest() {
 		pcont.PressW ().Returns (true);
 		pcont.HumanSkill ();
-		Assert.That (1000f, Is.EqualTo (pcont.GetY()));
+		Assert.That (10f, Is.EqualTo (pcont.GetY()));
 	}
 	
 	[Test]
@@ -71,15 +71,7 @@ public class PlayerControllerTest  {
 		pcont.SetPlayerController (ipcont);
 		return pcont;
 	}
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 	
 	
 	
