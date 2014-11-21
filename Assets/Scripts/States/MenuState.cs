@@ -2,7 +2,7 @@
 using System.Collections;
 
 
-public class MenuState : StateInt { 
+public class MenuState : IState { 
 	// GameStateManagerのインスタンスを再利用
 	private GameStateManager manager;
 	public GameObject player;

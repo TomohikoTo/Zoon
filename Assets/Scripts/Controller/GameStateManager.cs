@@ -3,12 +3,12 @@ using System.Collections;
 
 
 
-	public class GameStateManager : MonoBehaviour {
+public class GameStateManager : MonoBehaviour , IGameStateManagerController {
 
 		//ゲームの状態を保持
-		public StateInt activeState;
-
-		public static GameStateManager instance;
+	public IState activeState;
+	public GameStateManagerController gsmcon;
+	public static GameStateManager instance;
 		
 		void Awake()
 		{
@@ -29,17 +29,30 @@ using System.Collections;
 		
 		void Start()
 		{
-			activeState = new TitleState(this);
+			GameStateManagerInit();
 		}
 		void Update()
 		{
+		//activeStateがnullでないならactiveStateのStateUpdateメソッドを実行
 			if(activeState != null)
 				activeState.StateUpdate();
 		}
-		public void SwitchState(StateInt newState) 
+		//単体テスト用に修正
+		public string SwitchState(IState newState) 
 		{
 			activeState = newState;
+			Debug.Log (activeState);
+			return activeState.ToString ();
+
 		}
 
+		public void GameStateManagerInit()
+	{
+		activeState = new TitleState(this);
 
+	}
+
+	public string FormatState(){
+		return gsmcon.GetStateName ();
+	}
 }

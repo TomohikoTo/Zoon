@@ -3,7 +3,7 @@ using System.Collections;
 
 
 
-	public class TitleState : StateInt {
+	public class TitleState : IState {
 		public Texture2D titleTexture;
 		private GameStateManager manager;
 		

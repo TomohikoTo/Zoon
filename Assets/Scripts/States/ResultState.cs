@@ -2,7 +2,7 @@
 using System.Collections;
 
 
-public class ResultState : StateInt {
+public class ResultState : IState {
 
 	// GameStateManagerのインスタンスを再利用
 	private GameStateManager manager;

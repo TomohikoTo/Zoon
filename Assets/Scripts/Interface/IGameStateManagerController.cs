@@ -1,8 +1,8 @@
 ﻿using System;
 
-public interface IGameStateManager {
+public interface IGameStateManagerController {
 
 	void GameStateManagerInit();
-	string SwichState(IState istate);
+	string SwitchState(IState iState);
 	string FormatState();
 }

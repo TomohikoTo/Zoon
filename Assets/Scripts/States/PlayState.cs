@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayState : StateInt {
+public class PlayState : IState {
 	// GameStateManagerのインスタンスを再利用
 
 	public PlayData pd;
