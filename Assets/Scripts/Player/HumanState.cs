@@ -76,7 +76,7 @@ using System.Collections.Generic;
 
 			
 			if( player.transform.position.y < -50){
-				player.transform.position  = SpawnPoint.transform.position;
+				//player.transform.position  = SpawnPoint.transform.position;
 				
 			}
 			

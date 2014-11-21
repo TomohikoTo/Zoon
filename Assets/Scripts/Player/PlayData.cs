@@ -23,7 +23,7 @@ using System.Collections;
 	void Update () {
 	
 	
-			guiText.text = "HP"+ HP;
+			//guiText.text = "HP"+ HP;
 	
 	}
 

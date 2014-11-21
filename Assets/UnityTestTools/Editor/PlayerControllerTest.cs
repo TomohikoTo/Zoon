@@ -5,13 +5,13 @@ using NSubstitute;
 [Category ("Player Test")]
 public class PlayerControllerTest  {
 	
-	public IntPlayerController ipcont;
-	public PlayerController pcont;
+	public IntPlayerController ipcon;
+	public PlayerController pcon;
 	
 	[SetUp] public void Init()
 	{
-		this.ipcont = GetEffectMock ();
-		this.pcont = GetControllerMock (ipcont);
+		this.ipcon = GetEffectMock ();
+		this.pcon = GetControllerMock (ipcon);
 	}
 	
 	[TearDown] public void Cleanup()
@@ -20,56 +20,56 @@ public class PlayerControllerTest  {
 	[Test]
 	[Category ("Mover Test Click LeftArrow")]
 	public void ClickLeftArrowTest() {
-		pcont.PressLeftArrow ().Returns (true);
-		pcont.PlayerMove ();
-		Assert.That (-0.1f, Is.EqualTo (pcont.GetX()));
+		pcon.PressLeftArrow ().Returns (true);
+		pcon.PlayerMove ();
+		Assert.That (-0.1f, Is.EqualTo (pcon.GetX()));
 	}
 	[Test]
 	[Category ("Mover Test Click RightArrow")]
 	public void ClickRightArrowTest() {
-		pcont.PressRightArrow ().Returns (true);
-		pcont.PlayerMove ();
-		Assert.That (0.1f, Is.EqualTo (pcont.GetX()));
+		pcon.PressRightArrow ().Returns (true);
+		pcon.PlayerMove ();
+		Assert.That (0.1f, Is.EqualTo (pcon.GetX()));
 	}
 	
 	[Test]
 	[Category ("Mover Test Click UpArrow")]
 	public void ClickUpArrowTest() {
-		pcont.PressUpArrow ().Returns (true);
-		pcont.PlayerMove ();
-		Assert.That (0.1f, Is.EqualTo (pcont.GetZ()));
+		pcon.PressUpArrow ().Returns (true);
+		pcon.PlayerMove ();
+		Assert.That (0.1f, Is.EqualTo (pcon.GetZ()));
 	}
 	[Test]
 	[Category ("Mover Test Click DownArrow")]
 	public void ClickDownArrowTest() {
-		pcont.PressDownArrow ().Returns (true);
-		pcont.PlayerMove ();
-		Assert.That (-0.1f, Is.EqualTo (pcont.GetZ()));
+		pcon.PressDownArrow ().Returns (true);
+		pcon.PlayerMove ();
+		Assert.That (-0.1f, Is.EqualTo (pcon.GetZ()));
 	}
 	
 	[Test]
 	[Category ("Mover Test Click W")]
 	public void ClickWTest() {
-		pcont.PressW ().Returns (true);
-		pcont.HumanSkill ();
-		Assert.That (10f, Is.EqualTo (pcont.GetY()));
+		pcon.PressW ().Returns (true);
+		pcon.HumanSkill ();
+		Assert.That (10f, Is.EqualTo (pcon.GetY()));
 	}
 	
 	[Test]
 	[Category ("Mover Test Click D")]
 	public void ClickDTest() {
-		pcont.PressD ().Returns (true);
-		pcont.HumanSkill ();
-		Assert.That (0.2f, Is.EqualTo (pcont.GetSpeed()));
+		pcon.PressD ().Returns (true);
+		pcon.HumanSkill ();
+		Assert.That (0.2f, Is.EqualTo (pcon.GetSpeed()));
 	}
 	private IntPlayerController GetEffectMock () {
 		return Substitute.For<IntPlayerController> ();
 	}
-	private PlayerController GetControllerMock(IntPlayerController ipcont) {
-		var pcont = Substitute.For<PlayerController> ();
-		ipcont.PlayerTranslation ().Returns (0);
-		pcont.SetPlayerController (ipcont);
-		return pcont;
+	private PlayerController GetControllerMock(IntPlayerController ipcon) {
+		var pcon = Substitute.For<PlayerController> ();
+		ipcon.PlayerTranslation ().Returns (0);
+		pcon.SetPlayerController (ipcon);
+		return pcon;
 	}
 
 	
