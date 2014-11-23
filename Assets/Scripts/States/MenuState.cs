@@ -2,7 +2,7 @@
 using System.Collections;
 
 
-public class MenuState : IState { 
+public class MenuState : MonoBehaviour ,IState { 
 	// GameStateManagerのインスタンスを再利用
 	private GameStateManager manager;
 	public GameObject player;
@@ -21,8 +21,9 @@ public class MenuState : IState {
 		
 		public void Render() { 
 			//描画等
-			if(GUI.Button(new Rect(50, 50, 50, 50), "Play")) {
-				Application.LoadLevel("TestScene");
+			if(GUI.Button(new Rect(50, 50, 50, 50), "MouseStage")) {
+
+				Application.LoadLevel("MouseStage");
 				Time.timeScale = 1;
 				manager.SwitchState(new PlayState(manager));    
 			}
