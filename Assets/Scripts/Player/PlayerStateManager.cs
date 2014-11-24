@@ -2,14 +2,15 @@
 using System.Collections;
 
 
-public class PlayerStateManager : MonoBehaviour {
+public class PlayerStateManager : MonoBehaviour , IPlayerStateManagerController {
 		
 		//ゲームの状態を保持
 		//public Transform from;
 		//public Transform to;
 		public float speed = 0.1F;
-		private PlayerInt activeState;
-		public bool HaveFeather = false;
+		public PlayerStateManagerController psmcon;
+		public IPlayerState activeState;
+	
 		public bool landing = false;
 		public bool ReachGoal = false;
 		public static PlayerStateManager psm;
@@ -43,13 +44,19 @@ public class PlayerStateManager : MonoBehaviour {
 				if(activeState != null)
 					activeState.StateUpdate();
 			}
-			public void SwitchState(PlayerInt newState) 
-			{
-				activeState = newState;
-			}
-
-
-		private void OnCollisionEnter(Collision collision)
+		
+		public string SwitchState(IPlayerState newState) 
+		{
+			activeState = newState;
+			Debug.Log (activeState);
+			return activeState.ToString ();	
+		}
+	public void PlayerStateManagerInit()
+	{
+		activeState = new HumanState(this);
+		
+	}
+	private void OnCollisionEnter(Collision collision)
 		{
 			// 床オブジェクトと衝突したらジャンプ中ではないのでjump = falseにする
 			if (collision.gameObject.tag == "Floor")
@@ -64,11 +71,23 @@ public class PlayerStateManager : MonoBehaviour {
 				
 			}
 
-			if(collision.gameObject.tag == "Block")
-			{
-				HaveFeather = true;
-			}
+			
+		}
 
+	private void OnCollisionExit(Collision collision)
+	{
+		// 床オブジェクト衝突したらジャンプ中ではないのでjump = falseにする
+		if (collision.gameObject.tag == "Floor")
+		{
+			landing = false;
+		}
+		
+
+		
+		
+	}
+		public string FormatState(){
+			return psmcon.GetStateName ();
 		}
 		void OnBecameInvisible() {
 			if(ReachGoal)

@@ -13,8 +13,8 @@ public class GameStateManagerController  {
 		gsm = new GameStateManager();
 		
 	}
-	public void SetGameStateManagerController(IGameStateManagerController igsmcont){
-		this.igsmcon = igsmcont;
+	public void SetGameStateManagerController(IGameStateManagerController igsmcon){
+		this.igsmcon = igsmcon;
 	}
 	public string GetStateName(){
 		string statename = gsm.activeState.ToString() ;

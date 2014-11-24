@@ -5,7 +5,7 @@ using System.Collections;
 
 
 
-	public class BirdState :  PlayerInt  {
+	public class BirdState :  IPlayerState  {
 
 		public float AnimState = 0;
 		GameObject player;
