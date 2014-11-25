@@ -8,9 +8,9 @@ public class PlayerStateManager : MonoBehaviour , IPlayerStateManagerController 
 		//public Transform from;
 		//public Transform to;
 		public float speed = 0.1F;
+		[HideInInspector]
 		public PlayerStateManagerController psmcon;
 		public IPlayerState activeState;
-	
 		public bool landing = false;
 		public bool ReachGoal = false;
 		public static PlayerStateManager psm;
@@ -33,10 +33,10 @@ public class PlayerStateManager : MonoBehaviour , IPlayerStateManagerController 
 			
 			void Start()
 			{
-				activeState = new HumanState(this);
+				activeState = new MouseState(this);
 				player = GameObject.Find("Player");
-				SpawnPoint = GameObject.FindWithTag("SpawnPoint");
-				player.transform.position  = SpawnPoint.transform.position;
+				//SpawnPoint = GameObject.FindWithTag("SpawnPoint");
+				//player.transform.position  = SpawnPoint.transform.position;
 				
 			}
 			void Update()
@@ -53,7 +53,7 @@ public class PlayerStateManager : MonoBehaviour , IPlayerStateManagerController 
 		}
 	public void PlayerStateManagerInit()
 	{
-		activeState = new HumanState(this);
+		activeState = new MouseState(this);
 		
 	}
 	private void OnCollisionEnter(Collision collision)

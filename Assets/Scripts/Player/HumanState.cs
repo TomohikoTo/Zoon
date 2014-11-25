@@ -13,7 +13,6 @@ using System.Collections.Generic;
 		GameObject SpawnPoint;
 		public bool ReachGoal = false;
 		private Animator animator;
-		private int WalkId;
 		public bool landing = false;
 		GameObject Player;
 		public float JumpSpeed = 1000.0f;

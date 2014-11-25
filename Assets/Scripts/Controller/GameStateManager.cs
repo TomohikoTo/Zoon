@@ -7,7 +7,9 @@ public class GameStateManager : MonoBehaviour , IGameStateManagerController {
 
 		//ゲームの状態を保持
 	public IState activeState;
+	[HideInInspector]
 	public GameStateManagerController gsmcon;
+
 	public static GameStateManager instance;
 		
 		void Awake()
