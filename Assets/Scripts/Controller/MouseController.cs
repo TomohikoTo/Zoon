@@ -10,7 +10,7 @@ public class MouseController  {
 	private float z = 0.0f;
 	public float MoveSpeed = 0.5f;
 	public Vector3 position = Vector3.zero;
-	public Quaternion rotation ;
+	public Vector3 rotation = Vector3.zero;
 	public IMouseController imcon;
 
 
@@ -78,35 +78,35 @@ public class MouseController  {
 
 	//プレイヤーの向きのメソッド
 	private void MoveY() {
-		//7
+			//北西の方角
 		if ( y != 315 && PressUpArrow() && PressLeftArrow() ){
 			y = 315;
 		}
-		//8
-		if ( y != 0 && PressUpArrow()){
+			//北の方角
+			if ( y != 0 && PressUpArrow() && ! PressRightArrow() && !PressLeftArrow()){
 			y = 0;
 		}
-		//9
+			//北東の方角
 		if ( y != 45 && PressUpArrow() && PressRightArrow() ){
 			y = 45;
 		}
-		//4
-		if ( y != 270 && PressLeftArrow() ){
+			//西の方角
+			if ( y != 270 && PressLeftArrow()&& !PressUpArrow() && !PressDownArrow() ){
 			y = 270;
 		}
-		//6
-		if ( y != 90 && PressRightArrow() ){
+			//東の方角
+			if ( y != 90 && PressRightArrow() && !PressUpArrow() && !PressDownArrow()){
 			y = 90;
 		}
-		//1
+			//南西の方角
 		if ( y != 225 && PressLeftArrow() && PressDownArrow()){
 			y = 225;
 		}
-		//2
-		if ( y != 180  && PressDownArrow()){
+			//南の方角
+			if ( y != 180  && PressDownArrow() && ! PressRightArrow() && !PressLeftArrow()){
 			y = 180;
 		}
-		//3
+			//南東の方角
 		if ( y != 135  && PressDownArrow()&& PressRightArrow()){
 			y = 135;
 		}
@@ -127,7 +127,7 @@ public class MouseController  {
 	public Vector3 GetPosition(){
 		return this.position;
 	}
-	public Quaternion GetRotation(){
+		public Vector3 GetRotation(){
 		return this.rotation;
 	}
 	public float GetX() {

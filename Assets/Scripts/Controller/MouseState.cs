@@ -3,12 +3,12 @@ using System.Collections;
 
 namespace zoon{
 public class MouseState : MonoBehaviour , IMouseController , IPlayerState     {
-		public float speed = 0.5f;
+	public float speed = 3.0f;
 	public MouseController mcon;
 	private PlayerStateManager manager;
 	GameObject player;
 	public void OnEnable() {
-		mcon.SetMouseController(this);
+	mcon.SetMouseController(this);
 	}
 	
 	public MouseState(PlayerStateManager psm) {
@@ -39,7 +39,7 @@ public class MouseState : MonoBehaviour , IMouseController , IPlayerState     {
 	}
 
 	public int MouseRotation() {
-			transform.rotation = Quaternion.Slerp(mcon.GetRotation (), mcon.GetRotation(), Time.time * speed);
+			this.transform.rotation = Quaternion.Euler (mcon.GetRotation()); 
 			
 		
 		return 0;

@@ -32,6 +32,8 @@ namespace zoon {
 			SpawnPoint = GameObject.FindWithTag("SpawnPoint");
 			
 		}
+		public void OnEnable(){
+		}
 		// Use this for initialization
 		public void Update() { 
 			//更新処理

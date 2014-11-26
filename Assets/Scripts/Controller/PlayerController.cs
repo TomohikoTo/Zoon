@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System;
-
+namespace zoon {
 [Serializable]
 public class PlayerController {
 	private float x = 0.0f;
@@ -170,4 +170,5 @@ public class PlayerController {
 	public bool GetLanding() {
 		return this.landing;
 	}
+}
 }

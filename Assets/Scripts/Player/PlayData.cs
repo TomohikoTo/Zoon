@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
+namespace zoon {
 	public class PlayData : MonoBehaviour {
 
 	GameObject player;
@@ -33,4 +33,5 @@ using System.Collections;
 
 	}
 
+}
 }

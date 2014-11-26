@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 using NSubstitute;
+namespace zoon {
 [TestFixture]
 [Category ("Player Test")]
 public class PlayerControllerTest  {
@@ -77,4 +78,5 @@ public class PlayerControllerTest  {
 	
 	
 	
+}
 }

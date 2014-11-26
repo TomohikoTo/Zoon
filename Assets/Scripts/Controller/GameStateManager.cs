@@ -9,30 +9,31 @@ public class GameStateManager : MonoBehaviour , IGameStateManagerController {
 	public IState activeState;
 	[HideInInspector]
 	public GameStateManagerController gsmcon;
-
 	public static GameStateManager instance;
 		
-		void Awake()
-		{
-
-			if(instance == null) {
+	void Awake()
+	{
+		if(instance == null) {
 				instance = this;
 				DontDestroyOnLoad(gameObject);
 			} else {
 				DestroyImmediate(gameObject);
-			}
+		}
 			
-		}
+	}
+
+
+
 		
-		void OnGUI()
-		{
+	void OnGUI()
+	{
 			activeState.Render();
-		}
+	}
 		
-		void Start()
-		{
+	void Start()
+	{
 			GameStateManagerInit();
-		}
+	}
 		void Update()
 		{
 		//activeStateがnullでないならactiveStateのStateUpdateメソッドを実行

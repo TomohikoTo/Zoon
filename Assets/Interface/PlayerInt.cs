@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
+namespace zoon {
 	public interface PlayerInt  {
 
 
@@ -14,3 +14,4 @@ using System.Collections;
 
 	}
 
+}

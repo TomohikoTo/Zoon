@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+namespace zoon {
 public interface IMouseController  {
 	
 	
@@ -8,3 +8,4 @@ public interface IMouseController  {
 	int MouseRotation();
 }
 
+}

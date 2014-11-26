@@ -16,6 +16,9 @@ public class PlayerStateManager : MonoBehaviour , IPlayerStateManagerController 
 		public static PlayerStateManager psm;
 		GameObject player;
 		GameObject SpawnPoint;
+		void OnEnable()
+		{
+		}
 		void Awake()
 		{
 
@@ -42,7 +45,9 @@ public class PlayerStateManager : MonoBehaviour , IPlayerStateManagerController 
 			void Update()
 			{
 				if(activeState != null)
+					//activeState.OnEnable();
 					activeState.Update();
+
 			}
 		
 		public string SwitchState(IPlayerState newState) 

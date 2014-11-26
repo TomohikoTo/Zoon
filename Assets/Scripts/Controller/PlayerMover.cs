@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+namespace zoon {
 public class PlayerMover : MonoBehaviour, IntPlayerController {
 
 	GameObject player;
@@ -73,4 +73,5 @@ public class PlayerMover : MonoBehaviour, IntPlayerController {
 			
 		}
 	}
+}
 }
