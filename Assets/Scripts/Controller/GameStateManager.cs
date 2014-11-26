@@ -2,7 +2,7 @@
 using System.Collections;
 
 
-
+namespace zoon {
 public class GameStateManager : MonoBehaviour , IGameStateManagerController {
 
 		//ゲームの状態を保持
@@ -57,4 +57,5 @@ public class GameStateManager : MonoBehaviour , IGameStateManagerController {
 	public string FormatState(){
 		return gsmcon.GetStateName ();
 	}
+}
 }

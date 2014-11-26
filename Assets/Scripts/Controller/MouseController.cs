@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System;
 
+namespace zoon{
+[Serializable]
 public class MouseController  {
 
 	private float x = 0.0f;
@@ -8,7 +10,7 @@ public class MouseController  {
 	private float z = 0.0f;
 	public float MoveSpeed = 0.5f;
 	public Vector3 position = Vector3.zero;
-	public Vector3 rotation = Vector3.zero;
+	public Quaternion rotation ;
 	public IMouseController imcon;
 
 
@@ -125,7 +127,7 @@ public class MouseController  {
 	public Vector3 GetPosition(){
 		return this.position;
 	}
-	public Vector3 GetRotation(){
+	public Quaternion GetRotation(){
 		return this.rotation;
 	}
 	public float GetX() {
@@ -139,4 +141,5 @@ public class MouseController  {
 	public float GetZ() {
 		return z;
 	}
+}
 }

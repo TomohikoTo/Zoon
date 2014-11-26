@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
+namespace zoon{
 public class PlayerStateManager : MonoBehaviour , IPlayerStateManagerController {
 		
 		//ゲームの状態を保持
@@ -42,7 +42,7 @@ public class PlayerStateManager : MonoBehaviour , IPlayerStateManagerController 
 			void Update()
 			{
 				if(activeState != null)
-					activeState.StateUpdate();
+					activeState.Update();
 			}
 		
 		public string SwitchState(IPlayerState newState) 
@@ -94,4 +94,4 @@ public class PlayerStateManager : MonoBehaviour , IPlayerStateManagerController 
 			enabled = false;
 		}
 	}
-
+}

@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
-public class MenuState : MonoBehaviour ,IState { 
+namespace zoon {
+public class MenuState : IState { 
 	// GameStateManagerのインスタンスを再利用
 	private GameStateManager manager;
 	public GameObject player;
@@ -30,5 +30,5 @@ public class MenuState : MonoBehaviour ,IState {
 		}
 	}
 
-
+}
 

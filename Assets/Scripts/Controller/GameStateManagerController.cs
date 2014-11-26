@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System;
 
-
+namespace zoon {
 [Serializable]
 public class GameStateManagerController  {
 
@@ -21,4 +21,5 @@ public class GameStateManagerController  {
 		return statename;
 	}
 	
+}
 }

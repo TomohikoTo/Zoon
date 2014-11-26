@@ -7,7 +7,7 @@ using System.Collections;
 
 
 		// Use this for initialization
-		void StateUpdate();
+		
 		// 描画。
 
 

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 
 
-
+namespace zoon {
 	public class HumanState :  IPlayerState   {
 
 		
@@ -33,7 +33,7 @@ using System.Collections.Generic;
 			
 		}
 		// Use this for initialization
-		public void StateUpdate() { 
+		public void Update() { 
 			//更新処理
 			if( manager.landing && Input.GetKey(KeyCode.RightControl) && MaxSpeed > MoveSpeed){
 				MoveSpeed *= DashSpeed;
@@ -98,4 +98,5 @@ using System.Collections.Generic;
 
 
 
+}
 }

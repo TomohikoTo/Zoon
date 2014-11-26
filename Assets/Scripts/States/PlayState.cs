@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+namespace zoon {
 public class PlayState : IState {
 	// GameStateManagerのインスタンスを再利用
 
@@ -21,13 +22,13 @@ public class PlayState : IState {
 		psm = GameObject.Find ("Player").GetComponent<PlayerStateManager>();
 
 		//更新処理
-		if( psm.ReachGoal == true){
-			Application.LoadLevel("Result");
-			Time.timeScale = 1;
-			manager.SwitchState(new ResultState(manager));  
-			psm.ReachGoal = false;
+	//	if( psm.ReachGoal == true){
+		//	Application.LoadLevel("Result");
+	//		Time.timeScale = 1;
+//manager.SwitchState(new ResultState(manager));  
+	//		psm.ReachGoal = false;
 
-		}
+	//	}
 
 	}
 		
@@ -42,4 +43,5 @@ public class PlayState : IState {
 		}
 
 
+}
 }

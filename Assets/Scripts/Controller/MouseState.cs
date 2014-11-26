@@ -1,29 +1,31 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MouseState : MonoBehaviour , IPlayerState, IMouseController    {
-
+namespace zoon{
+public class MouseState : MonoBehaviour , IMouseController , IPlayerState     {
+		public float speed = 0.5f;
 	public MouseController mcon;
 	private PlayerStateManager manager;
 	GameObject player;
 	public void OnEnable() {
-		mcon.SetMouseController (this);
+		mcon.SetMouseController(this);
 	}
 	
 	public MouseState(PlayerStateManager psm) {
 		//初期化
 		manager = psm;
-		//player = GameObject.Find("Player");
+
 		//SpawnPoint = GameObject.FindWithTag("SpawnPoint");
 		
 	}
 	// Use this for initialization
 	void Start () {
-	
+		player = GameObject.Find("Player");
 	}
 	
+
 	// Update is called once per frame
-	public void StateUpdate () {
+	public void Update () {
 	
 		mcon.MouseMove();
 		MouseTranslation ();
@@ -37,9 +39,10 @@ public class MouseState : MonoBehaviour , IPlayerState, IMouseController    {
 	}
 
 	public int MouseRotation() {
-		
-		this.transform.rotation = Quaternion.Euler (mcon.GetRotation ());
+			transform.rotation = Quaternion.Slerp(mcon.GetRotation (), mcon.GetRotation(), Time.time * speed);
+			
 		
 		return 0;
 	}
+}
 }

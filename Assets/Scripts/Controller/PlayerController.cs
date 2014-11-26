@@ -10,7 +10,7 @@ public class PlayerController {
 	public Vector3 position = Vector3.zero;
 	public IntPlayerController playerController;
 	
-	public float JumpSpeed = 100.0f;
+	public float JumpSpeed = 10.0f;
 	public float BaseSpeed = 0.1f;
 	public float MoveSpeed = 0.1f;
 	public float DashSpeed = 2.0f;
@@ -132,8 +132,6 @@ public class PlayerController {
 
 		if( !landing){
 			this.position.y += Physics.gravity.y * Time.deltaTime;
-		} else {
-			//this.position.y = y;
 		}
 		this.position.z = z;
 	}
@@ -165,6 +163,9 @@ public class PlayerController {
 	}
 	public void SetLanding() {
 		landing = true;
+	}
+	public void ExitLanding() {
+		landing = false;
 	}
 	public bool GetLanding() {
 		return this.landing;

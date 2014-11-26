@@ -4,7 +4,7 @@ using System.Collections;
 
 
 
-
+namespace zoon {
 	public class BirdState :  IPlayerState  {
 
 		public float AnimState = 0;
@@ -24,7 +24,7 @@ using System.Collections;
 		}
 		
 		// Update is called once per frame
-		public void StateUpdate() { 
+		public void Update() { 
 			//更新処理
 
 			if(Input.GetKey(KeyCode.LeftArrow)){
@@ -66,4 +66,5 @@ using System.Collections;
 		}
 
 
+}
 }

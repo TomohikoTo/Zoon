@@ -6,7 +6,7 @@ public interface IPlayerState  {
 	
 	
 
-	void StateUpdate();
+	void Update();
 
 	
 	

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System;
 
-
+namespace zoon{
 [Serializable]
 public class PlayerStateManagerController {
 
@@ -19,5 +19,6 @@ public class PlayerStateManagerController {
 	public string GetStateName(){
 		string statename = psm.activeState.ToString() ;
 		return statename;
+	}
 	}
 }
