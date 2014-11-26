@@ -35,7 +35,7 @@ namespace zoon {
 		public void OnEnable(){
 		}
 		// Use this for initialization
-		public void Update() { 
+		public void StateUpdate() { 
 			//更新処理
 			if( manager.landing && Input.GetKey(KeyCode.RightControl) && MaxSpeed > MoveSpeed){
 				MoveSpeed *= DashSpeed;

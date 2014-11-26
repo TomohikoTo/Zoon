@@ -6,7 +6,7 @@ public class MouseState : MonoBehaviour , IMouseController , IPlayerState     {
 	public float speed = 3.0f;
 	public MouseController mcon;
 	private PlayerStateManager manager;
-	GameObject player;
+	
 	public void OnEnable() {
 	mcon.SetMouseController(this);
 	}
@@ -20,10 +20,13 @@ public class MouseState : MonoBehaviour , IMouseController , IPlayerState     {
 	}
 	// Use this for initialization
 	void Start () {
-		player = GameObject.Find("Player");
+		
 	}
 	
+	public void StateUpdate(){
+			Update ();
 
+	}
 	// Update is called once per frame
 	public void Update () {
 	

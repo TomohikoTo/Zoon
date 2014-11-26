@@ -26,7 +26,7 @@ namespace zoon {
 		public void OnEnable(){
 		}
 		// Update is called once per frame
-		public void Update() { 
+		public void StateUpdate() { 
 			//更新処理
 
 			if(Input.GetKey(KeyCode.LeftArrow)){

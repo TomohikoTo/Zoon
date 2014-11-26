@@ -45,9 +45,10 @@ public class PlayerStateManager : MonoBehaviour , IPlayerStateManagerController 
 			void Update()
 			{
 				if(activeState != null)
+				{
 					//activeState.OnEnable();
-					activeState.Update();
-
+					activeState.StateUpdate();
+				}
 			}
 		
 		public string SwitchState(IPlayerState newState) 
