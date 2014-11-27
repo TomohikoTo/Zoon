@@ -5,6 +5,7 @@ namespace zoon{
 [Serializable]
 public class MouseController  {
 	public Exception exTest;
+	public string test = null;
 	private float x = 0.0f;
 	private float y = 0.0f;
 	private float z = 0.0f;
@@ -12,7 +13,7 @@ public class MouseController  {
 	public Vector3 position = Vector3.zero;
 	public Vector3 rotation = Vector3.zero;
 	public IMouseController imcon;
-
+	public MouseMover mm;
 
 	public MouseController (){
 	}
@@ -26,7 +27,7 @@ public class MouseController  {
 		MoveZ();
 		SetRotation();
 		SetPosition();
-		
+			ThrowException();
 
 	}
 
@@ -149,9 +150,12 @@ public class MouseController  {
 	public float GetZ() {
 		return z;
 	}
+	public Vector3 GetException(){
+			return this.position;
+	}
 	public void ThrowException(){
 			if (Input.GetKey (KeyCode.Backslash)) {
-				throw new Exception();
+				mm.MouseTranslation();
 			}
 				 
 	}

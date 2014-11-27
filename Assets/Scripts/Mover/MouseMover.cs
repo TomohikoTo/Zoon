@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System;
 
 namespace zoon{
 public class MouseMover : MonoBehaviour , IMouseController {
@@ -49,9 +49,11 @@ public class MouseMover : MonoBehaviour , IMouseController {
 		try { 
 				mcon.ThrowException();
 
-			} catch (System.Exception e) {
+			} catch (NullReferenceException e) {
 			Debug.Log (e);
-		}
+		} finally{
+
+			}
 		}
 }
 }
