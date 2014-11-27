@@ -57,6 +57,32 @@ public class MouseStateTest {
 		Assert.That (45f, Is.EqualTo (mcon.GetY()));
 	}
 
+	[Test]
+	[Category ("FailTest")]
+	public void ErrorNineTest() {
+			mcon.PressUpArrow ().Returns (false);
+			mcon.PressRightArrow ().Returns (false);
+			mcon.MouseMove ();
+			Assert.That (45f, Is.EqualTo (mcon.GetY()));
+		}
+
+		[Test]
+		[Category ("FailTest")]
+		public void controllerNullTest() {
+			mcon = null;
+			mcon.PressUpArrow ().Returns (true);
+			mcon.PressRightArrow ().Returns (true);
+			mcon.MouseMove ();
+			Assert.That (45f, Is.EqualTo (mcon.GetY()));
+		}
+
+		[Test]
+		[Category("Failing Tests")]
+		public void ExceptionTest()
+		{
+			throw new Exception("Exception throwing test");
+		}
+
 	private IMouseController GetEffectMock () {
 		return Substitute.For<IMouseController> ();
 	}

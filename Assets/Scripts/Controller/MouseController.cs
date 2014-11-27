@@ -4,7 +4,7 @@ using System;
 namespace zoon{
 [Serializable]
 public class MouseController  {
-
+	public Exception exTest;
 	private float x = 0.0f;
 	private float y = 0.0f;
 	private float z = 0.0f;
@@ -26,6 +26,7 @@ public class MouseController  {
 		MoveZ();
 		SetRotation();
 		SetPosition();
+		
 
 	}
 
@@ -56,7 +57,14 @@ public class MouseController  {
 		}
 		return false;
 	}
-
+	
+	//例外テスト
+		public virtual Boolean PressBackslash(){
+			if (Input.GetKey (KeyCode.Backslash)) {
+			return true;
+		}
+		return false;
+	}
 	//プレイヤーのＸ軸移動
 	private void MoveX() {
 		if (PressLeftArrow() ) {
@@ -140,6 +148,12 @@ public class MouseController  {
 
 	public float GetZ() {
 		return z;
+	}
+	public void ThrowException(){
+			if (Input.GetKey (KeyCode.Backslash)) {
+				throw new Exception();
+			}
+				 
 	}
 }
 }

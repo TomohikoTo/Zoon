@@ -9,13 +9,11 @@ public class MouseState : MonoBehaviour  , IPlayerState     {
 	public GameObject player;
 	public GameObject playerClone;
 	public GameStateManagerController gsmcon;
-	private PlayerStateManager manager;
-	
 
 	
 	public MouseState(PlayerStateManager psm) {
 		//初期化
-		manager = psm;
+		
 
 		//SpawnPoint = GameObject.FindWithTag("SpawnPoint");
 		

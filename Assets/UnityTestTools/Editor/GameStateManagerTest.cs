@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 using NSubstitute;
-namespace zoon {
+namespace zoon.Test {
 [TestFixture]
 [Category ("Player Test")]
 public class GameStateManagerTest{
