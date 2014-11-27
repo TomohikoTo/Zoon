@@ -36,7 +36,7 @@ public class PlayerStateManager : MonoBehaviour , IPlayerStateManagerController 
 			
 			void Start()
 			{
-				activeState = new MouseState(this);
+			activeState = new MouseState(this);
 				player = GameObject.Find("Player");
 				//SpawnPoint = GameObject.FindWithTag("SpawnPoint");
 				//player.transform.position  = SpawnPoint.transform.position;
@@ -48,6 +48,7 @@ public class PlayerStateManager : MonoBehaviour , IPlayerStateManagerController 
 				{
 					//activeState.OnEnable();
 					activeState.StateUpdate();
+					ChangeAI();
 				}
 			}
 		
@@ -99,5 +100,15 @@ public class PlayerStateManager : MonoBehaviour , IPlayerStateManagerController 
 			if(ReachGoal)
 			enabled = false;
 		}
+
+	public void ChangeAI(){
+
+			if( activeState.ToString () != "AIState" && Input.GetKey(KeyCode.Escape)){
+				SwitchState(new AIState(this));
+				Time.timeScale = 1;
+				Application.LoadLevel("demoScene");
+
+			}
+	}
 	}
 }
