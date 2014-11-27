@@ -5,7 +5,7 @@ namespace zoon {
 [Serializable]
 public class GameStateManagerController  {
 
-
+	public	string statename;
 	public IGameStateManagerController igsmcon;
 	//ゲームの状態を保持
 	public GameStateManager gsm;

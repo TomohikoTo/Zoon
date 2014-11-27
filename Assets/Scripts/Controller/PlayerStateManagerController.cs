@@ -9,7 +9,7 @@ public class PlayerStateManagerController {
 	//ゲームの状態を保持
 	public PlayerStateManager psm;
 	public PlayerStateManagerController() {
-		psm = new PlayerStateManager();
+	psm = new PlayerStateManager();
 		
 	}
 	

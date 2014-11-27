@@ -15,7 +15,7 @@ public class GetCheese : MonoBehaviour {
 	private void OnCollisionEnter(Collision collision)
 	{
 			// 床オブジェクトと衝突したらジャンプ中ではないのでjump = falseにする
-			if (collision.gameObject.tag == "Player")
+			if (collision.gameObject.tag == "PlayerClone")
 			{
 				Object.Destroy(gameObject);
 			}

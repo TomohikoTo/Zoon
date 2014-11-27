@@ -67,6 +67,9 @@ namespace zoon {
 			}
 		}
 
+		public void CreatePlayerClone(){
+
+		}
 
 }
 }

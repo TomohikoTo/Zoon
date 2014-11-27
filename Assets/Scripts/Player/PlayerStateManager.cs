@@ -28,7 +28,7 @@ public class PlayerStateManager : MonoBehaviour , IPlayerStateManagerController 
 					DontDestroyOnLoad(gameObject);
 				} else {
 					DestroyImmediate(gameObject);
-				}
+			}
 				
 		}
 			
