@@ -24,7 +24,7 @@ public class AIState : MonoBehaviour , IPlayerState{
 	}
 
 	public void StateUpdate(){
-			mm.
+
 			SetRandom();
 			keyJammer();
 			DoAct();
@@ -40,13 +40,13 @@ public class AIState : MonoBehaviour , IPlayerState{
 	}
 	public void DoAct(){
 		if( 1.0f <= DicideAct && DicideAct < 3.0f ){
-				mcon.PressLeftArrow();
+				//mcon.PressLeftArrow();
 			} else if( 3.0f <= DicideAct && DicideAct < 5.0f ){
-				mcon.PressRightArrow();
+			//	mcon.PressRightArrow();
 			} else if( 5.0f <= DicideAct && DicideAct < 7.0f ){
-				mcon.PressUpArrow();
+			//	mcon.PressUpArrow();
 			} else if( 7.0f <= DicideAct && DicideAct <= 9.0f ){
-				mm.OnEnable();
+			//	mm.OnEnable();
 			}
 	}
 	public bool keyJammer(){
