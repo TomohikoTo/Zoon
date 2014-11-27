@@ -24,7 +24,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 400002}
   - 54: {fileID: 5400000}
-  - 136: {fileID: 13600000}
   - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: Player
@@ -139,6 +138,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400016}
   - 111: {fileID: 11100000}
+  - 136: {fileID: 13600000}
   m_Layer: 0
   m_Name: Boy_anim
   m_TagString: Untagged
@@ -971,7 +971,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.87626457, y: 0, z: -.905189514}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 400010}
@@ -1972,7 +1972,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: .100000001
-  HaveFeather: 0
+  psmcon:
+    psm: {fileID: 0}
   landing: 0
   ReachGoal: 0
 --- !u!114 &11400002
@@ -2012,14 +2013,14 @@ CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100002}
+  m_GameObject: {fileID: 100016}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: .5
-  m_Height: 3.79999995
+  m_Radius: .100000001
+  m_Height: .699999988
   m_Direction: 1
-  m_Center: {x: .5, y: 2.4000001, z: 0}
+  m_Center: {x: 0, y: .349999994, z: 0}
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

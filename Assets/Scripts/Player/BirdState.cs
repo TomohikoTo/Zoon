@@ -4,7 +4,7 @@ using System.Collections;
 
 
 
-
+namespace zoon {
 	public class BirdState :  IPlayerState  {
 
 		public float AnimState = 0;
@@ -22,7 +22,9 @@ using System.Collections;
 			SpawnPoint = GameObject.FindWithTag("SpawnPoint");
 			
 		}
-		
+
+		public void OnEnable(){
+		}
 		// Update is called once per frame
 		public void StateUpdate() { 
 			//更新処理
@@ -65,5 +67,9 @@ using System.Collections;
 			}
 		}
 
+		public void CreatePlayerClone(){
 
+		}
+
+}
 }

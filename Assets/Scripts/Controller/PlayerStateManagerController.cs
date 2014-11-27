@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System;
 
-
+namespace zoon{
 [Serializable]
 public class PlayerStateManagerController {
 
@@ -9,7 +9,7 @@ public class PlayerStateManagerController {
 	//ゲームの状態を保持
 	public PlayerStateManager psm;
 	public PlayerStateManagerController() {
-		psm = new PlayerStateManager();
+	psm = new PlayerStateManager();
 		
 	}
 	
@@ -19,5 +19,6 @@ public class PlayerStateManagerController {
 	public string GetStateName(){
 		string statename = psm.activeState.ToString() ;
 		return statename;
+	}
 	}
 }

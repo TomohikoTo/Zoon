@@ -2,35 +2,38 @@
 using System.Collections;
 
 
-
+namespace zoon {
 public class GameStateManager : MonoBehaviour , IGameStateManagerController {
 
 		//ゲームの状態を保持
 	public IState activeState;
+	[HideInInspector]
 	public GameStateManagerController gsmcon;
 	public static GameStateManager instance;
 		
-		void Awake()
-		{
-
-			if(instance == null) {
+	void Awake()
+	{
+		if(instance == null) {
 				instance = this;
 				DontDestroyOnLoad(gameObject);
 			} else {
 				DestroyImmediate(gameObject);
-			}
+		}
 			
-		}
+	}
+
+
+
 		
-		void OnGUI()
-		{
+	void OnGUI()
+	{
 			activeState.Render();
-		}
+	}
 		
-		void Start()
-		{
+	void Start()
+	{
 			GameStateManagerInit();
-		}
+	}
 		void Update()
 		{
 		//activeStateがnullでないならactiveStateのStateUpdateメソッドを実行
@@ -55,4 +58,5 @@ public class GameStateManager : MonoBehaviour , IGameStateManagerController {
 	public string FormatState(){
 		return gsmcon.GetStateName ();
 	}
+}
 }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+namespace zoon {
 public interface IState 
 {
 	// Update()メソッド呼び出し
@@ -11,3 +11,4 @@ public interface IState
 	void Render();
 }
 
+}

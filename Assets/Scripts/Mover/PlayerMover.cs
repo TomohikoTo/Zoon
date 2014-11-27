@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+namespace zoon {
 public class PlayerMover : MonoBehaviour, IntPlayerController {
 
 	GameObject player;
@@ -51,7 +51,11 @@ public class PlayerMover : MonoBehaviour, IntPlayerController {
 
 	private void OnCollisionEnter(Collision collision)
 	{
-
+		if (collision.gameObject.tag == "Floor")
+		{
+			pcont.SetLanding ();
+			
+		}
 		
 		if (collision.gameObject.tag == "Goal")
 		{
@@ -59,14 +63,15 @@ public class PlayerMover : MonoBehaviour, IntPlayerController {
 			
 		}
 	}
-	private void OnCollisionStay(Collision collision)
+
+	private void OnCollisionExit(Collision collision)
 	{
 		// 床オブジェクトと衝突したらジャンプ中ではないのでjump = falseにする
 		if (collision.gameObject.tag == "Floor")
 		{
-			pcont.SetLanding ();
+			pcont.ExitLanding ();
 			
 		}
 	}
-	
+}
 }

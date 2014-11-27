@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+namespace zoon {
 public class ClickButton : MonoBehaviour {
 
 	public float incX = 3;
@@ -34,4 +34,5 @@ public class ClickButton : MonoBehaviour {
 	void OnMouseExit() {
 		print("カーソルが離れてます！");
 	}
+}
 }

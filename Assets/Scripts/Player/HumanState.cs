@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 
 
-
+namespace zoon {
 	public class HumanState :  IPlayerState   {
 
 		
@@ -13,7 +13,6 @@ using System.Collections.Generic;
 		GameObject SpawnPoint;
 		public bool ReachGoal = false;
 		private Animator animator;
-		private int WalkId;
 		public bool landing = false;
 		GameObject Player;
 		public float JumpSpeed = 1000.0f;
@@ -32,6 +31,8 @@ using System.Collections.Generic;
 			player = GameObject.Find("Player");
 			SpawnPoint = GameObject.FindWithTag("SpawnPoint");
 			
+		}
+		public void OnEnable(){
 		}
 		// Use this for initialization
 		public void StateUpdate() { 
@@ -96,7 +97,9 @@ using System.Collections.Generic;
 				
 			}
 		}
+		public void CreatePlayerClone(){
+		}
 
 
-
+}
 }

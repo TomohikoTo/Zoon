@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-
+namespace zoon {
 public class ResultState : IState {
 
 	// GameStateManagerのインスタンスを再利用
@@ -32,4 +32,5 @@ public class ResultState : IState {
 		}
 	}
 
+}
 }

@@ -2,7 +2,7 @@
 using System.Collections;
 
 
-
+namespace zoon {
 	public class TitleState : IState {
 		public Texture2D titleTexture;
 		private GameStateManager manager;
@@ -18,7 +18,7 @@ using System.Collections;
 					//更新処理
 			if(Input.anyKey) { // 何らかのキーを押すとMenuStateに遷移
 
-				Debug.Log("Begin State");
+				
 				manager.SwitchState(new MenuState(manager));
 				Application.LoadLevel("Menu");
 			}
@@ -31,4 +31,5 @@ using System.Collections;
 
 
 
+}
 }
