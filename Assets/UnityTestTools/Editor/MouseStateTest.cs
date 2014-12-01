@@ -83,6 +83,16 @@ public class MouseStateTest {
 			throw new Exception("Exception throwing test");
 		}
 
+		[Test]
+		[Category ("FailTest")]
+		public void ExceptionCatchTest() {
+
+			mcon.PressBackslash().Returns (true);
+			mcon.MouseMove ();
+			Assert.That (45f, Is.EqualTo (mcon.GetY()));
+		}
+
+
 	private IMouseController GetEffectMock () {
 		return Substitute.For<IMouseController> ();
 	}

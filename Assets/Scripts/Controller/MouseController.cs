@@ -157,7 +157,7 @@ public class MouseController  {
 	//エクセプションテストメソッド
 	public void ThrowException(){
 			if (PressBackslash()) {
-				throw new ArgumentException("expected message");
+				throw new ArgumentException("エラーが発生しました。");
 			}
 				 
 	}
