@@ -4,7 +4,7 @@ using System;
 namespace zoon{
 [Serializable]
 public class MouseController  {
-	public Exception exTest;
+	public string exTest = null;
 	public string test = null;
 	private float x = 0.0f;
 	private float y = 0.0f;
@@ -13,7 +13,7 @@ public class MouseController  {
 	public Vector3 position = Vector3.zero;
 	public Vector3 rotation = Vector3.zero;
 	public IMouseController imcon;
-	public MouseMover mm;
+	
 
 	public MouseController (){
 	}
@@ -153,9 +153,11 @@ public class MouseController  {
 	public Vector3 GetException(){
 			return this.position;
 	}
+
+	//エクセプションテストメソッド
 	public void ThrowException(){
-			if (Input.GetKey (KeyCode.Backslash)) {
-				mm.MouseTranslation();
+			if (PressBackslash()) {
+				throw new ArgumentException("エラーが発生しました。");
 			}
 				 
 	}

@@ -3,7 +3,7 @@ using System;
 
 namespace zoon{
 public class MouseMover : MonoBehaviour , IMouseController {
-	
+
 		public float speed = 3.0f;
 		public MouseController mcon;
 		GameObject player;
@@ -25,9 +25,7 @@ public class MouseMover : MonoBehaviour , IMouseController {
 		// Update is called once per frame
 		public void Update () {
 			ExceptionCheck();
-			mcon.MouseMove();
-			MouseTranslation ();
-			MouseRotation ();
+
 		}
 		public int MouseTranslation() {
 			this.transform.position = (mcon.GetPosition ());
@@ -47,9 +45,12 @@ public class MouseMover : MonoBehaviour , IMouseController {
 		public void ExceptionCheck(){
 		
 		try { 
-				mcon.ThrowException();
 
-			} catch (NullReferenceException e) {
+				mcon.MouseMove();
+				MouseTranslation ();
+				MouseRotation ();
+
+			} catch (ArgumentException e) {
 			Debug.Log (e);
 		} finally{
 
