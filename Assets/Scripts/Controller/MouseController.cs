@@ -153,9 +153,11 @@ public class MouseController  {
 	public Vector3 GetException(){
 			return this.position;
 	}
+
+	//エクセプションテストメソッド
 	public void ThrowException(){
-			if (Input.GetKey (KeyCode.Backslash)) {
-				test = x.ToString(); 
+			if (PressBackslash()) {
+				throw new ArgumentException("expected message");
 			}
 				 
 	}
