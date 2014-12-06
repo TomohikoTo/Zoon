@@ -3,6 +3,7 @@ using System.Collections;
 namespace zoon{
 public class GetCheese : MonoBehaviour {
 
+
 	// Use this for initialization
 	void Start () {
 	
@@ -14,7 +15,7 @@ public class GetCheese : MonoBehaviour {
 	}
 	private void OnCollisionEnter(Collision collision)
 	{
-			// 床オブジェクトと衝突したらジャンプ中ではないのでjump = falseにする
+			// 
 			if (collision.gameObject.tag == "PlayerClone")
 			{
 				Object.Destroy(gameObject);
@@ -26,4 +27,7 @@ public class GetCheese : MonoBehaviour {
 			
 		}
 	}
+	//public void GetPoint(){
+//			
+//	}
 }
