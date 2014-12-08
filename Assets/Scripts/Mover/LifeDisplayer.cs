@@ -21,6 +21,9 @@ namespace zoon {
 			guiText.text =  lcon.SetLife();
 			
 		}
+		public float ReduceLife(float LifePoint) {
+			return lcon.ReduceLife(LifePoint);;
+		}
 		
 	}
 }

@@ -23,21 +23,21 @@ namespace zoon {
 			
 		}
 		
-		//ポイント獲得
-		public void AddLife(float LifePoint){
-			Life += LifePoint;
+		//ライフ回復
+		public float AddLife(float LifePoint){
+			return Life += LifePoint;
 		}
 		
-		//ポイント減少
-		public void ReduceScore(float LifePoint){
-			Life += LifePoint;
+		//ライフ減少
+		public float ReduceLife(float LifePoint){
+			return Life -= LifePoint;
 		}
 		
 		public float GetLife(){
 			return Life;
 		}
 		public string SetLife () {
-			AddLife(Life);
+
 			return this.Life.ToString();
 		}
 		

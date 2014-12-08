@@ -4,10 +4,11 @@ namespace zoon{
 public class GetCheese : MonoBehaviour {
 
 		private float ScorePoint = 10f;
-		public ScoreController scon;
+		ScoreDisplayer sd;
 	// Use this for initialization
 	void Start () {
-	
+			sd	= GameObject.Find("Score").GetComponent<ScoreDisplayer>();
+		
 	}
 	
 	// Update is called once per frame
@@ -19,7 +20,7 @@ public class GetCheese : MonoBehaviour {
 			// プレイヤーがチーズに接触したら消滅
 			if (collision.gameObject.tag == "PlayerClone")
 			{
-				scon.AddScore(ScorePoint);
+				sd.AddScore(ScorePoint);
 				Object.Destroy(gameObject);
 			}
 			
