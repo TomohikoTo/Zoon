@@ -21,6 +21,10 @@ namespace zoon {
 			guiText.text =  scon.SetScore();
 
 	}
+	public float AddScore(float ScorePoint){
+			return scon.AddScore (ScorePoint);
+	}
+
 	
 }
 }

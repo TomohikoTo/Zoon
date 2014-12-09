@@ -26,20 +26,20 @@ public class ScoreController  {
 	}
 	
 	//ポイント獲得
-	public void AddScore(float ScorePoint){
-		score += ScorePoint;
+	public float AddScore(float ScorePoint){
+		return score += ScorePoint;
 	}
 	
 	//ポイント減少
-	public void ReduceScore(float ScorePoint){
-			score += ScorePoint;
+	public float ReduceScore(float ScorePoint){
+		return score -= ScorePoint;
 	}
 
 	public float GetScore(){
 		return score;
 	}
 	public string SetScore () {
-			AddScore(score);
+
 			return this.score.ToString();
 	}
 	
