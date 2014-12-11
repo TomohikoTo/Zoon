@@ -814,7 +814,6 @@ GameObject:
   - 54: {fileID: 1420707853}
   - 136: {fileID: 1420707854}
   - 114: {fileID: 1420707856}
-  - 114: {fileID: 1420707855}
   m_Layer: 0
   m_Name: Cheese
   m_TagString: Untagged
@@ -865,17 +864,6 @@ CapsuleCollider:
   m_Height: 2.5999999
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: -.300000012}
---- !u!114 &1420707855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1420707851}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bb4f4df2e5e90248bb961b14e9dd747, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1420707856
 MonoBehaviour:
   m_ObjectHideFlags: 0

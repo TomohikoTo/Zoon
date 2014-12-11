@@ -5,31 +5,29 @@ namespace zoon {
 	public class PlayData : MonoBehaviour {
 
 	GameObject player;
-	GameObject SpawnPoint;
+	//GameObject SpawnPoint;
 	public bool resetCheck = false;
-	public float HP ;
-	public enum AnimalState{
-		   Human,
-		   Bird,
-	 };
+	public float Life ;
+		private LifeDisplayer ld;
 
 	// Use this for initialization
 	void Start () {
 		player = GameObject.Find("Player");
-		SpawnPoint = GameObject.FindWithTag("SpawnPoint");
+		ld = GameObject.Find ("Life").GetComponent<LifeDisplayer>();
+		//SpawnPoint = GameObject.FindWithTag("SpawnPoint");
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
-	
+			Life = ld.GetLife();
 			//guiText.text = "HP"+ HP;
 	
 	}
 
 	public void playReset(){
 
-		player.transform.position  = SpawnPoint.transform.position;
+		//player.transform.position  = SpawnPoint.transform.position;
 
 	}
 
