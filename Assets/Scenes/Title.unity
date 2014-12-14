@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resetCheck: 0
-  HP: 0
+  Life: 0
 --- !u!1 &283848370
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,7 +480,7 @@ GUITexture:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 593006072}
   m_Enabled: 1
-  m_Texture: {fileID: 2800000, guid: 76570eddaf5882642b6293dcf1476884, type: 3}
+  m_Texture: {fileID: 2800000, guid: ffb6a8e4f28a3494cbcaed125666d85d, type: 3}
   m_Color: {r: .5, g: .5, b: .5, a: .5}
   m_PixelInset:
     serializedVersion: 2
@@ -544,7 +544,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54f886f8a2e1f8e48bca47eeb874f60d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Score: {fileID: 0}
 --- !u!132 &1227068366
 GUIText:
   m_ObjectHideFlags: 0
@@ -686,4 +685,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5b138dba0ca9bc4c9e84cff301dc118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Life: {fileID: 0}

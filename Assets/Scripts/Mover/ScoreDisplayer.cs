@@ -3,7 +3,6 @@ using System.Collections;
 namespace zoon {
 	public class ScoreDisplayer : MonoBehaviour , IScoreController{
 
-	public GameObject Score;
 	public ScoreController scon;
 
 	public void OnEnable() {
@@ -23,6 +22,9 @@ namespace zoon {
 	}
 	public float AddScore(float ScorePoint){
 			return scon.AddScore (ScorePoint);
+	}
+	public float ReduceScore(float ScorePoint){
+			return scon.ReduceScore (ScorePoint);
 	}
 
 	

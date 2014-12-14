@@ -3,7 +3,10 @@ using System;
 
 namespace zoon{
 public class MouseMover : MonoBehaviour , IMouseController {
-
+		private float LifePoint = 1f;
+		private float ScorePoint = 10f;
+		LifeDisplayer ld;
+		ScoreDisplayer sd;
 		public float speed = 3.0f;
 		public MouseController mcon;
 		GameObject player;
@@ -13,6 +16,8 @@ public class MouseMover : MonoBehaviour , IMouseController {
 
 		// Use this for initialization
 		void Start () {
+			ld	= GameObject.Find("Life").GetComponent<LifeDisplayer>();
+			sd	= GameObject.Find("Score").GetComponent<ScoreDisplayer>();
 			player = GameObject.Find("Player");
 
 		}
@@ -41,7 +46,25 @@ public class MouseMover : MonoBehaviour , IMouseController {
 			
 			return 0;
 		}
+		private void OnCollisionEnter(Collision collision)
+		{
+			// プレイヤーがチーズに接触したら消滅
+			if (collision.gameObject.name == "cat")
+			{
+				ld.ReduceLife(LifePoint);
 
+			}
+			if (collision.gameObject.name == "bad_mouse")
+			{
+				sd.ReduceScore(ScorePoint);
+				
+			}
+			
+			
+			
+			
+			
+		}
 		public void ExceptionCheck(){
 		
 		try { 

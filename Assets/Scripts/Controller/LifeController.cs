@@ -34,7 +34,7 @@ namespace zoon {
 		}
 		
 		public float GetLife(){
-			return Life;
+			return this.Life;
 		}
 		public string SetLife () {
 

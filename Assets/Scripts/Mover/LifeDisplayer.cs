@@ -3,7 +3,7 @@ using System.Collections;
 namespace zoon {
 	public class LifeDisplayer : MonoBehaviour , ILifeController{
 		
-		public GameObject Life;
+
 		public LifeController lcon;
 		
 		public void OnEnable() {
@@ -18,8 +18,12 @@ namespace zoon {
 			LifeDisplay();
 		}
 		public void LifeDisplay(){
+
 			guiText.text =  lcon.SetLife();
 			
+		}
+		public float GetLife(){
+			return lcon.GetLife();
 		}
 		public float ReduceLife(float LifePoint) {
 			return lcon.ReduceLife(LifePoint);;
