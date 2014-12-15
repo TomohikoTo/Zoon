@@ -26,6 +26,10 @@ namespace zoon {
 	public float ReduceScore(float ScorePoint){
 			return scon.ReduceScore (ScorePoint);
 	}
+	
+	public float ResetScore(){
+			return scon.ResetScore();
+	}
 
 	
 }

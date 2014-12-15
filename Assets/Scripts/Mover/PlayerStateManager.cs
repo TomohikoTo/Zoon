@@ -36,7 +36,7 @@ public class PlayerStateManager : MonoBehaviour , IPlayerStateManagerController 
 			
 			void Start()
 			{
-			activeState = new MouseState(this);
+			activeState = new HumanState(this);
 				player = GameObject.Find("Player");
 				//SpawnPoint = GameObject.FindWithTag("SpawnPoint");
 				//player.transform.position  = SpawnPoint.transform.position;
@@ -46,7 +46,7 @@ public class PlayerStateManager : MonoBehaviour , IPlayerStateManagerController 
 			{
 				if(activeState != null)
 				{
-					//activeState.OnEnable();
+					
 					activeState.StateUpdate();
 					ChangeAI();
 				}
@@ -60,7 +60,7 @@ public class PlayerStateManager : MonoBehaviour , IPlayerStateManagerController 
 		}
 	public void PlayerStateManagerInit()
 	{
-		activeState = new MouseState(this);
+		activeState = new HumanState(this);
 		
 	}
 	private void OnCollisionEnter(Collision collision)

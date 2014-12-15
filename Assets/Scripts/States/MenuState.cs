@@ -17,7 +17,7 @@ public class MenuState : IState {
 	
 	public void StateUpdate() { 
 		//更新処理
-			//psm	= GameObject.Find("Player").GetComponent<PlayerStateManager>();
+			psm	= GameObject.Find("Player").GetComponent<PlayerStateManager>();
 
 		}
 		
@@ -28,7 +28,7 @@ public class MenuState : IState {
 				Application.LoadLevel("MouseStage");
 				Time.timeScale = 1;
 				manager.SwitchState(new PlayState(manager));  
-				//psm.SwitchState(new MouseState(psm));  
+				psm.SwitchState(new MouseState(psm));  
 			}
 		}
 	}
