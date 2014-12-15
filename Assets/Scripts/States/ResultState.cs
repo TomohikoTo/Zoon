@@ -6,10 +6,11 @@ public class ResultState : IState {
 
 	// GameStateManagerのインスタンスを再利用
 	private GameStateManager manager;
-
+	private PlayData pd;
 	public ResultState(GameStateManager GSManager) {
 		//初期化
 		manager = GSManager;
+		pd = GameObject.Find ("PlayData").GetComponent<PlayData>();
 
 	}
 	
@@ -20,17 +21,19 @@ public class ResultState : IState {
 	public void Render() { 
 		//描画等
 		if(GUI.Button(new Rect(50, 50, 100, 50), "メニューへ")) {
+			pd.playReset();
 			Application.LoadLevel("Menu");
 			Time.timeScale = 1;
 			manager.SwitchState(new MenuState(manager));
 		} else if(GUI.Button(new Rect(50, 110, 100, 50), "リトライ")) {
-
-			Application.LoadLevel("TestScene");
+			pd.playReset();
+			Application.LoadLevel("MouseStage");
 			Time.timeScale = 1;
 			manager.SwitchState(new PlayState(manager));
 
 		}
 	}
+	
 
 }
 }

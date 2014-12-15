@@ -28,7 +28,9 @@ namespace zoon {
 		public float ReduceLife(float LifePoint) {
 			return lcon.ReduceLife(LifePoint);;
 		}
-		
+		public float ResetLife(){
+			return lcon.ResetLife();
+		}
 	}
 }
 

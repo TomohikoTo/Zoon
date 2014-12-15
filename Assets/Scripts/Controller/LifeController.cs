@@ -2,7 +2,8 @@
 namespace zoon {
 	[Serializable]
 	public class LifeController  {
-		
+
+		private float InitialLife = 3.0f;
 		private float Life = 3.0f;
 		public ILifeController ilcon;
 		public LifeController(){
@@ -40,6 +41,9 @@ namespace zoon {
 
 			return this.Life.ToString();
 		}
-		
+
+		public float ResetLife(){
+			return Life = InitialLife;
+		}
 	}
 }
