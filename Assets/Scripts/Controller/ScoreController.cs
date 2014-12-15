@@ -32,7 +32,10 @@ public class ScoreController  {
 	
 	//ポイント減少
 	public float ReduceScore(float ScorePoint){
-		return score -= ScorePoint;
+		if( score - ScorePoint >= 0){
+			return score -= ScorePoint;
+		}
+			return score;
 	}
 
 	public float GetScore(){
@@ -43,5 +46,9 @@ public class ScoreController  {
 			return this.score.ToString();
 	}
 	
+	public float ResetScore () {
+			return score = 0.0f;
+	}
+
 }
 }
