@@ -22,7 +22,8 @@ namespace zoon {
 			SpawnPoint = GameObject.FindWithTag("SpawnPoint");
 			
 		}
-
+		public void Render() { 
+		}
 		public void OnEnable(){
 		}
 		// Update is called once per frame

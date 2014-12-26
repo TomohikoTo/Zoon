@@ -22,7 +22,8 @@ public class AIState : MonoBehaviour , IPlayerState{
 
 		
 	}
-
+		public void Render() { 
+		}
 	public void StateUpdate(){
 
 			SetRandom();

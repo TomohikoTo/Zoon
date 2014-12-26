@@ -35,6 +35,8 @@ namespace zoon {
 		public void OnEnable(){
 		}
 		// Use this for initialization
+		public void Render() { 
+		}
 		public void StateUpdate() { 
 			//更新処理
 			if( manager.landing && Input.GetKey(KeyCode.RightControl) && MaxSpeed > MoveSpeed){

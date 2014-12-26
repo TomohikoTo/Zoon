@@ -10,17 +10,18 @@ public class TimerController  {
 	public TimerController(){
 			
 	}
-		public void SetTimerController(ITimerController itcon){
+	public void SetTimerController(ITimerController itcon){
 			this.itcon = itcon;
 
 	}
-	//ゲームの制限時間
-	private float gameTime = 0.0f;
-	private float initialTime = 30.0f;
 	
-		void start(){
+	private float gameTime = 0.0f;		//ゲームの制限時間
+	private float initialTime = 30.0f;	//制限時間の初期時間
+	
+	
+	void start(){
 			gameTime = 0.0f;
-		}
+	}
 
 		//ポイント獲得
 		public float AddTime(float TimePoint){
@@ -32,13 +33,18 @@ public class TimerController  {
 
 			return gameTime -= Time.deltaTime;
 		}
+
+		//時間の初期化
 		public float TimeReset(){
 			return gameTime = initialTime;
 		}
 
+		//時間のゲッター
 		public float GetTime(){
 			return gameTime;
 		}
+
+		//時間を画面に表示するためのセッター
 		public string SetTime () {
 			
 			return gameTime.ToString();

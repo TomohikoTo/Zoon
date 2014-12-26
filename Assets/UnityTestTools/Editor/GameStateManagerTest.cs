@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 using NSubstitute;
-namespace zoon.Test {
+namespace zoon {
 [TestFixture]
 [Category ("Player Test")]
 public class GameStateManagerTest{
@@ -22,7 +22,7 @@ public class GameStateManagerTest{
 	[Category ("SwitchTitleState")]
 	public void SwitchTitleStateTest() {
 		string activeState = gsmcon.gsm.SwitchState( new TitleState(this.gsm));
-		Assert.That ("TitleState", Is.EqualTo (activeState));
+		Assert.That ("zoon.TitleState", Is.EqualTo (activeState));
 	}
 	[Test]
 	[Category ("SwitchMenuState")]
