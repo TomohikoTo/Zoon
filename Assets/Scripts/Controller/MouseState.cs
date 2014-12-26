@@ -4,7 +4,7 @@ using System.Collections;
 namespace zoon{
 public class MouseState : MonoBehaviour  , IPlayerState     {
 	public float speed = 3.0f;
-
+	private PlayerStateManager manager;
 	public GameObject mouse;
 	public GameObject player;
 	public GameObject playerClone;
@@ -13,7 +13,7 @@ public class MouseState : MonoBehaviour  , IPlayerState     {
 	
 	public MouseState(PlayerStateManager psm) {
 		//初期化
-		
+			manager = psm;
 
 		//SpawnPoint = GameObject.FindWithTag("SpawnPoint");
 		
@@ -25,7 +25,8 @@ public class MouseState : MonoBehaviour  , IPlayerState     {
 
 
 	}
-	
+	public void Render() { 
+		}
 	public void StateUpdate(){
 
 			if(mouse == null) {

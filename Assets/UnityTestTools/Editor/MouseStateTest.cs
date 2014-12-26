@@ -77,10 +77,10 @@ public class MouseStateTest {
 		}
 
 		[Test]
-		[Category("Failing Tests")]
+		[ExpectedException(typeof(ArgumentException), ExpectedMessage = "Exception throwing test")]
 		public void ExceptionTest()
 		{
-			throw new Exception("Exception throwing test");
+			throw new ArgumentException("Exception throwing test");
 		}
 
 		[Test]

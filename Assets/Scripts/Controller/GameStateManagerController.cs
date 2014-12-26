@@ -10,7 +10,7 @@ public class GameStateManagerController  {
 	//ゲームの状態を保持
 	public GameStateManager gsm;
 	public GameStateManagerController() {
-		gsm = new GameStateManager();
+	gsm = new GameStateManager();
 		
 	}
 	public void SetGameStateManagerController(IGameStateManagerController igsmcon){

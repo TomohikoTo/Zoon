@@ -5,6 +5,7 @@ namespace zoon{
 [Serializable]
 public class PlayerStateManagerController {
 
+	public	string statename;
 	public IPlayerStateManagerController ipsmcon;
 	//ゲームの状態を保持
 	public PlayerStateManager psm;

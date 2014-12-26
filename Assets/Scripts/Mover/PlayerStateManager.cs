@@ -10,15 +10,16 @@ public class PlayerStateManager : MonoBehaviour , IPlayerStateManagerController 
 		public float speed = 0.1F;
 		[HideInInspector]
 		public PlayerStateManagerController psmcon;
+
 		public IPlayerState activeState;
-		public bool landing = false;
-		public bool ReachGoal = false;
 		public static PlayerStateManager psm;
 		GameObject player;
 		GameObject SpawnPoint;
-		void OnEnable()
-		{
-		}
+
+		public bool landing = false;
+		public bool ReachGoal = false;
+
+
 		void Awake()
 		{
 
@@ -32,12 +33,15 @@ public class PlayerStateManager : MonoBehaviour , IPlayerStateManagerController 
 				
 		}
 			
-	
+		void OnGUI()
+		{
+			activeState.Render();
+		}
 			
 			void Start()
 			{
 			activeState = new HumanState(this);
-				player = GameObject.Find("Player");
+				//player = GameObject.Find("Player");
 				//SpawnPoint = GameObject.FindWithTag("SpawnPoint");
 				//player.transform.position  = SpawnPoint.transform.position;
 				
