@@ -5,7 +5,7 @@ public interface IPlayerState  {
 	
 		void Render();
 		void StateUpdate();
-		void CreatePlayerClone();
+
 
 	
 	
