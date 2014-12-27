@@ -25,6 +25,7 @@ public class ScoreController  {
 		
 	}
 	
+	
 	//ポイント獲得
 	public float AddScore(float ScorePoint){
 		return score += ScorePoint;

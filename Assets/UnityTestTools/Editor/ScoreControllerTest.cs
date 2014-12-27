@@ -44,6 +44,16 @@ namespace zoon {
 			Assert.That (0f, Is.EqualTo (scon.GetScore() ));
 		}
 
+
+		[Test]
+		[Category ("ScoreResetTest")]
+		public void ScoreResetTest() {
+			//点数が上限を超えて異常な値になるかどうかのテスト
+
+				scon.AddScore(ScorePoint);
+			scon.ResetScore();
+			Assert.That (0f, Is.EqualTo (scon.GetScore() ));
+		}
 		[Test]
 		[Category ("Test")]
 		public void StringCheckTest() {
