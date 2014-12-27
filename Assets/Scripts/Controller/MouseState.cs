@@ -4,10 +4,8 @@ using System.Collections;
 namespace zoon{
 public class MouseState : IPlayerState     {
 	public float speed = 3.0f;
+	public GameObject mouse;	
 	private PlayerStateManager manager;
-	public GameObject mouse;
-	public GameObject player;
-	public GameObject playerClone;
 	public GameStateManagerController gsmcon;
 	public PlayerCloneCreater pc;
 	
@@ -27,10 +25,11 @@ public class MouseState : IPlayerState     {
 	public void Render() { 
 		}
 	public void StateUpdate(){
+			//クローンオブジェクトが場にあるか確認し、なければ生成、
 			mouse = GameObject.Find("mouse(Clone)");
 			if(mouse == null) {
 
-				Object.Destroy(playerClone);
+				//Object.Destroy(playerClone);
 				pc = GameObject.Find("Player").GetComponent<PlayerCloneCreater>();
 				pc.CreateMouse();
 			} else {
