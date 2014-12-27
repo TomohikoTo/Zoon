@@ -31,7 +31,10 @@ namespace zoon {
 		
 		//ライフ減少
 		public float ReduceLife(float LifePoint){
+			if( Life > 0){
 			return Life -= LifePoint;
+			}
+			return Life;
 		}
 		
 		public float GetLife(){
