@@ -6,6 +6,7 @@ namespace zoon {
 	[TestFixture]
 	[Category ("Player Test")]
 	public class ScoreControllerTest {
+		private string word;
 		public float ScorePoint = 10f;
 		public IScoreController iscon;
 		public ScoreController scon;
@@ -19,9 +20,14 @@ namespace zoon {
 		{
 			
 		}
-
 		[Test]
-		[Category ("Test")]
+		[Category ("InitializeCheckTest")]
+		public void InitializeCheckTest() {
+
+			Assert.That (0f, Is.EqualTo (scon.GetScore() ));
+		}
+		[Test]
+		[Category ("ErrorCheckTest")]
 		public void ReduceScoreErrorCheckTest() {
 			//点数がマイナスにならないかどうかのテスト
 			scon.AddScore(ScorePoint);
@@ -55,15 +61,13 @@ namespace zoon {
 			Assert.That (0f, Is.EqualTo (scon.GetScore() ));
 		}
 		[Test]
-		[Category ("Test")]
+		[Category ("FieldTest")]
 		public void StringCheckTest() {
-			//点数がマイナスにならないかどうかのテスト
-			scon.AddScore(ScorePoint);
-			for( int i = 0; i < 100 ; i++)
-			{
-				scon.ReduceScore(ScorePoint);
-			}
-			Assert.Fail ();
+			//点数がstring型かどうかのテスト
+			word = "0";
+
+			
+			Assert.That (word, Is.EqualTo (scon.SetScore() ));
 		}
 		private IScoreController GetEffectMock () {
 			return Substitute.For<IScoreController> ();
