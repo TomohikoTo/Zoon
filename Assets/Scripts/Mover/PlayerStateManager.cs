@@ -12,7 +12,7 @@ public class PlayerStateManager : MonoBehaviour , IPlayerStateManagerController 
 		public PlayerStateManagerController psmcon;
 
 		public IPlayerState activeState;
-		public static PlayerStateManager psm;
+		public static PlayerStateManager instance;
 		GameObject player;
 		GameObject SpawnPoint;
 
@@ -24,8 +24,8 @@ public class PlayerStateManager : MonoBehaviour , IPlayerStateManagerController 
 		{
 
 				
-			if(psm == null) {
-				psm = this;
+			if(instance == null) {
+				instance = this;
 					DontDestroyOnLoad(gameObject);
 				} else {
 					DestroyImmediate(gameObject);

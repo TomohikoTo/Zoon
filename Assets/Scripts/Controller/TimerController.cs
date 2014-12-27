@@ -30,8 +30,10 @@ public class TimerController  {
 		
 		//ポイント減少
 		public float ReduceTime(){
-
+			if( gameTime > 0){
 			return gameTime -= Time.deltaTime;
+			}
+			return gameTime;
 		}
 
 		//時間の初期化
