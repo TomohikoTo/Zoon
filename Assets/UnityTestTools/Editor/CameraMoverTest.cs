@@ -20,7 +20,20 @@ namespace zoon.Test
 		[TearDown] public void Cleanup()
 		{
 		}
-		
+		[Test]
+		[Category ("Mover Test Click Q")]
+		public void ClickQTest() {
+			mover.IsClickedQ ().Returns (true);
+			mover.CalcAngle ();
+			Assert.That (-5.0f, Is.EqualTo (mover.GetY()));
+		}
+		[Test]
+		[Category ("Mover Test Click E")]
+		public void ClickETest() {
+			mover.IsClickedE ().Returns (true);
+			mover.CalcAngle ();
+			Assert.That (5.0f, Is.EqualTo (mover.GetY()));
+		}
 		[Test]
 		[Category ("Mover Test Click F")]
 		public void ClickFTest() {
