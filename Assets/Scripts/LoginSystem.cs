@@ -19,8 +19,8 @@ public class LoginSystem : MonoBehaviour {
 
 		//テキストボックス
 		int txW = 200, txH = 20;
-		id = GUI.TextField (new Rect(Screen.width*1/2, Screen.height*1/2, txW , twH), id);
-		pw = GUI.TextField (new Rect(Screen.width*1/2, Screen.heigjt*1/2, txW , twH), pw);
+		id = GUI.TextField (new Rect(Screen.width*1/2, Screen.height*1/2, txW , txH), id);
+		pw = GUI.TextField (new Rect(Screen.width*1/2, Screen.height*1/2, txW , txH), pw);
 		
 
 		}
