@@ -13,51 +13,62 @@ public class PlayState : IState {
 	public bool PositionReset = false;
 
 
+	//初期化
 	public PlayState(GameStateManager GSManager) {
-		//初期化
+		
 		manager = GSManager;
 			psm = GameObject.Find ("Player").GetComponent<PlayerStateManager>();
 			ld	= GameObject.Find ("Life").GetComponent<LifeDisplayer>();
 			td	= GameObject.Find ("Timer").GetComponent<TimerDisplayer>();
 			Life = ld.GetLife();
 	}
+		//更新処理
 	public void StateUpdate() { 
 
 		
-		//更新処理
+		if(td.GetTime() < 0){
 			TimeCourse();
+		}
 			GameEnd();
 	}
 
+		//描画等
+		public void Render() { 
+			
+			
+			
+		}
+	
+	//-------PlayState固有メソッド--------
+
+		//プレイ画面からリザルト画面に遷移する判定
 		public void GameEnd(){
+			//ライフが0以下になったら遷移
 			if( ld.GetLife() <= 0){
-				Application.LoadLevel("Result");
-				Time.timeScale = 1;
-				manager.SwitchState(new ResultState(manager));  
+				SwitchResult();  
 				
 			}
 
+			//時間が0以下になったら遷移
 			if( td.GetTime() <= 0){
-				Application.LoadLevel("Result");
-				Time.timeScale = 1;
-				manager.SwitchState(new ResultState(manager));  
-				
+				 
+				SwitchResult();
 			}
 
 		}
 
+		//プレイ時間の減少処理
 		public void  TimeCourse(){
 
 			td.ReduceTime();
 		}
-		
-	
-
-		
-		public void Render() { 
-			//描画等
 
 
+		//リザルト画面に遷移
+		public void SwitchResult(){
+			Application.LoadLevel("Result");
+			Time.timeScale = 1;
+			manager.SwitchState(new ResultState(manager)); 
 		}
 
 
