@@ -7,33 +7,44 @@ public class ResultState : IState {
 	// GameStateManagerのインスタンスを再利用
 	private GameStateManager manager;
 	private PlayData pd;
+
+	//初期化処理
 	public ResultState(GameStateManager GSManager) {
-		//初期化
+		
 		manager = GSManager;
+		//プレイデータ初期化処理用にコンポーネントを探す
 		pd = GameObject.Find ("PlayData").GetComponent<PlayData>();
 
 	}
-	
+	//更新処理
 	public void StateUpdate() { 
-		//更新処理
+		
+	}
+	//描画等
+	public void Render() { 
+		
+		if(GUI.Button(new Rect(50, 50, 100, 50), "メニューへ")) {
+			
+		} else if(GUI.Button(new Rect(50, 110, 100, 50), "リトライ")) {
+				SwitchResult();
+
+		}
 	}
 	
-	public void Render() { 
-		//描画等
-		if(GUI.Button(new Rect(50, 50, 100, 50), "メニューへ")) {
+	//メニュー画面に遷移
+	public void SwitchMenu(){
 			pd.PlayReset();
 			Application.LoadLevel("Menu");
 			Time.timeScale = 1;
 			manager.SwitchState(new MenuState(manager));
-		} else if(GUI.Button(new Rect(50, 110, 100, 50), "リトライ")) {
+	}
+	//リザルト画面に遷移
+	public void SwitchResult(){
 			pd.PlayReset();
 			Application.LoadLevel("MouseStage");
 			Time.timeScale = 1;
 			manager.SwitchState(new PlayState(manager));
 
-		}
 	}
-	
-
 }
 }
