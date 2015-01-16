@@ -80,12 +80,12 @@ public class MouseStateTest {
 		[Test]
 		[Category ("KeyCheckTest")]
 		public void KeyTest() {
-			for(int i = 0; i <100 ; i++){
+
 			mcon.PressUpArrow ().Returns (true);
 			mcon.PressDownArrow ().Returns (true);
 			mcon.PressRightArrow ().Returns (true);
 			mcon.PressLeftArrow ().Returns (true);
-			}
+
 			mcon.MouseMove ();
 			Assert.That (0f, Is.EqualTo (mcon.GetX()));
 		}

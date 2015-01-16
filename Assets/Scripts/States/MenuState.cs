@@ -9,36 +9,54 @@ public class MenuState : IState {
 	public GameObject playerClone;
 	public TimerDisplayer td;
 	public GameObject player;
-
-	public MenuState(GameStateManager GSManager) {
 		//初期化
+	public MenuState(GameStateManager GSManager) {
+		
 		manager = GSManager;
 		
 		
 
 	}
 	
-	
-	public void StateUpdate() { 
 		//更新処理
-			playerClone = GameObject.FindGameObjectWithTag("PlayerClone");
-			Object.Destroy(playerClone);
 
+	public void StateUpdate() { 
+		
+			DestroyPlayer();
 			psm	= GameObject.Find("Player").GetComponent<PlayerStateManager>();
 			td	= GameObject.Find ("Timer").GetComponent<TimerDisplayer>();
 		}
-		
+
+		//描画等
 		public void Render() { 
-			//描画等
+
+			//マウスステージに移動するボタン
 			if(GUI.Button(new Rect(50, 50, 50, 50), "MouseStage")) {
-				td.TimeReset();;
-				Application.LoadLevel("MouseStage");
-				Time.timeScale = 1;
-				manager.SwitchState(new PlayState(manager));  
-				psm.SwitchState(new MouseState(psm));  
+				SwitchMouseStage();
 			}
 		}
+			
+		//プレイヤーのオブジェクトを破棄
+		public void DestroyPlayer(){
+				//プレイヤーの子オブジェクトがあるなら、プレイ画面で重複しないよう破棄する処理
+				playerClone = GameObject.FindGameObjectWithTag("PlayerClone");
+				if( playerClone != null)
+				Object.Destroy(playerClone);
+
+		}
+
+
+		//マウスステージに遷移
+		public void SwitchMouseStage(){
+			td.TimeReset();;
+			Application.LoadLevel("MouseStage");
+			Time.timeScale = 1;
+			manager.SwitchState(new PlayState(manager));  
+			psm.SwitchState(new MouseState(psm));
+		}
+
 	}
+
 
 }
 
