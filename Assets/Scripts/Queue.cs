@@ -3,13 +3,14 @@ using System.Collections;
 
 public class Queue  {
 
-	// Use this for initialization
-	void Start () {
-	
+
+	//キューにデータを追加する
+	public void enqueue(){
+	}
+
+	//キューのデータを取り出す
+	public void dequeue(){
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
 }
