@@ -69,7 +69,7 @@ public class Shooting : MonoBehaviour {
 		if( (bullet_last + 1) %BULLET_MAX == bullet_first)
 		{
 			/* 現在配列の中身は，すべてキューの要素で埋まっている */
-			Debug.Log("ジョブが満杯です");
+			Debug.Log("Capacity Over");
 		}
 		else
 		{
