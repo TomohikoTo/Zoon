@@ -57,7 +57,7 @@ public class Shooting : MonoBehaviour {
 
 	//待機時間を減少する
 	public void ReduceCT(){
-
+		CoolTime -= Time.deltaTime;
 	}
 
 	//待機時間を初期化
