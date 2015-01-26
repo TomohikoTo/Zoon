@@ -4,10 +4,23 @@ using System.Collections;
 public class Shooting : MonoBehaviour {
 
 	static int BULLET_MAX = 10;		//キューの要領
-	int QUEUE_EMPTY = -1;		//キューの空
-	int[] queue = new int[BULLET_MAX]; //キューの要素数
-	int queue_first = 0;	//キューの先頭
-	int queue_last = 0;		//キューの末尾
+	int BULLET_EMPTY = -1;		//キューの空
+	int[] bullet = new int[BULLET_MAX]; //キューの構造
+
+	//キューの先頭
+	private int bf;
+	public int bullet_first
+	{
+		get{ return bf;  }
+		set{ bf = value; }
+	}
+
+	//キューの末尾
+	private int bl;
+	int bullet_last{
+		get{ return bl;  }
+		set{ bl = value; }
+	}
 	public GameObject Shoot;
 	public Transform ShootSpawn;
 	public float InitialCT = 1.0f;
@@ -75,7 +88,7 @@ public class Shooting : MonoBehaviour {
 	//キューにデータを追加する
 	public void enqueue(int val){
 
-		if( (queue_last + 1) %BULLET_MAX == queue_first)
+		if( (bullet_last + 1) %BULLET_MAX ==  bullet_first)
 		{
 			/* 現在配列の中身は，すべてキューの要素で埋まっている */
 			Debug.Log("ジョブが満杯です");
@@ -84,10 +97,10 @@ public class Shooting : MonoBehaviour {
 		{
 			CountPressShoot++;
 			/* キューに新しい値を入れる */
-			queue[queue_last]=val;
+			bullet[bullet_last]=val;
 			/* queue_lastを1つ後ろにずらす。
   			もし，いちばん後ろの場合は，先頭にもってくる */
-			queue_last=(queue_last+1)%BULLET_MAX;
+			bullet_last=(bullet_last+1)%BULLET_MAX;
 		}
 	}
 	
@@ -96,16 +109,16 @@ public class Shooting : MonoBehaviour {
 		
 		int queue_return;
 		
-		if(queue_first == queue_last)
+		if(bullet_first == bullet_last)
 		{
 			Debug.Log("弾が空です");
-			return QUEUE_EMPTY;
+			return BULLET_EMPTY;
 		}
 		else
 		{
-			queue_return = queue[queue_first];
+			queue_return = bullet[bullet_first];
 			
-			queue_first = (queue_first + 1)%BULLET_MAX;
+			bullet_first = (bullet_first + 1)%BULLET_MAX;
 			Instantiate(Shoot, ShootSpawn.position, ShootSpawn.rotation); // 弾丸を生成
 
 			return queue_return;
