@@ -26,7 +26,7 @@ public class PlayState : IState {
 	public void StateUpdate() { 
 
 		
-		if(td.GetTime() < 0){
+		if(td.GetTime() > 0){
 			TimeCourse();
 		}
 			GameEnd();
