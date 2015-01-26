@@ -12,7 +12,7 @@ public class Shooting : MonoBehaviour {
 	public Transform ShootSpawn;
 	public float InitialCT = 1.0f;
 	public float CoolTime = 1.0f;
-	public float CountPressShoot = 0.0f;
+	public int CountPressShoot = 0;
 	// Use this for initialization
 	void Start () {
 	
@@ -29,8 +29,9 @@ public class Shooting : MonoBehaviour {
 	public void shoot(){
 		CheckCT();
 		if(Input.GetMouseButtonDown(0)){
+
 			CountPressShoot++;
-		
+			enqueue(CountPressShoot);
 		}
 
 	}
@@ -41,9 +42,11 @@ public class Shooting : MonoBehaviour {
 		//待機時間が初期状態なら実行
 		if(CoolTime == InitialCT ){
 			if(CountPressShoot > 0f){
+			//Instantiate(Shoot, ShootSpawn.position, ShootSpawn.rotation); // 弾丸を生成
 			CountPressShoot--;
 			//queue.dequeue ();
-			Instantiate(Shoot, ShootSpawn.position, ShootSpawn.rotation); // 弾丸を生成
+			dequeue();
+			
 			ReduceCT ();
 			}
 		}
@@ -71,15 +74,20 @@ public class Shooting : MonoBehaviour {
 	}
 
 	//キューにデータを追加する
-	public void enqueue(){
+	public void enqueue(int val){
 		
 		if( (queue_last + 1) %QUEUE_MAX == queue_first)
 		{
-			
+			/* 現在配列の中身は，すべてキューの要素で埋まっている */
+			Debug.Log("ジョブが満杯です");
 		}
 		else
 		{
-			
+			/* キューに新しい値を入れる */
+			queue[queue_last]=val;
+			/* queue_lastを1つ後ろにずらす。
+  			もし，いちばん後ろの場合は，先頭にもってくる */
+			queue_last=(queue_last+1)%QUEUE_MAX;
 		}
 	}
 	
@@ -90,6 +98,7 @@ public class Shooting : MonoBehaviour {
 		
 		if(queue_first == queue_last)
 		{
+			Debug.Log("弾が空です");
 			return QUEUE_EMPTY;
 		}
 		else
