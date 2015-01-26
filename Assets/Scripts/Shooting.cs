@@ -3,9 +3,9 @@ using System.Collections;
 
 public class Shooting : MonoBehaviour {
 
-	static int QUEUE_MAX = 5;		//キューの要領
+	static int BULLET_MAX = 10;		//キューの要領
 	int QUEUE_EMPTY = -1;		//キューの空
-	int[] queue = new int[QUEUE_MAX]; //キューの要素数
+	int[] queue = new int[BULLET_MAX]; //キューの要素数
 	int queue_first = 0;	//キューの先頭
 	int queue_last = 0;		//キューの末尾
 	public GameObject Shoot;
@@ -30,7 +30,7 @@ public class Shooting : MonoBehaviour {
 		CheckCT();
 		if(Input.GetMouseButtonDown(0)){
 
-			CountPressShoot++;
+
 			enqueue(CountPressShoot);
 		}
 
@@ -41,10 +41,9 @@ public class Shooting : MonoBehaviour {
 	public void CheckCT(){
 		//待機時間が初期状態なら実行
 		if(CoolTime == InitialCT ){
-			if(CountPressShoot > 0f){
+			if(CountPressShoot > 0){
 			//Instantiate(Shoot, ShootSpawn.position, ShootSpawn.rotation); // 弾丸を生成
-			CountPressShoot--;
-			//queue.dequeue ();
+				CountPressShoot--;
 			dequeue();
 			
 			ReduceCT ();
@@ -75,19 +74,20 @@ public class Shooting : MonoBehaviour {
 
 	//キューにデータを追加する
 	public void enqueue(int val){
-		
-		if( (queue_last + 1) %QUEUE_MAX == queue_first)
+
+		if( (queue_last + 1) %BULLET_MAX == queue_first)
 		{
 			/* 現在配列の中身は，すべてキューの要素で埋まっている */
 			Debug.Log("ジョブが満杯です");
 		}
 		else
 		{
+			CountPressShoot++;
 			/* キューに新しい値を入れる */
 			queue[queue_last]=val;
 			/* queue_lastを1つ後ろにずらす。
   			もし，いちばん後ろの場合は，先頭にもってくる */
-			queue_last=(queue_last+1)%QUEUE_MAX;
+			queue_last=(queue_last+1)%BULLET_MAX;
 		}
 	}
 	
@@ -105,8 +105,9 @@ public class Shooting : MonoBehaviour {
 		{
 			queue_return = queue[queue_first];
 			
-			queue_first = (queue_first + 1)%QUEUE_MAX;
+			queue_first = (queue_first + 1)%BULLET_MAX;
 			Instantiate(Shoot, ShootSpawn.position, ShootSpawn.rotation); // 弾丸を生成
+
 			return queue_return;
 		}
 	}
