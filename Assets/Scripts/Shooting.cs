@@ -106,7 +106,7 @@ public class Shooting : MonoBehaviour {
 >>>>>>> TomoBranch
 		{
 			/* 現在配列の中身は，すべてキューの要素で埋まっている */
-			Debug.Log("ジョブが満杯です");
+			Debug.Log("Capacity Over");
 		}
 		else
 		{
