@@ -77,7 +77,7 @@ public class Shooting : MonoBehaviour {
 			/* キューに新しい値を入れる */
 			bullet[bullet_last]=val;
 			/* queue_lastを1つ後ろにずらす。
-もし，いちばん後ろの場合は，先頭にもってくる */
+もし，いちばん後ろの場合は，先頭にもってくる　 */
 			bullet_last=(bullet_last+1)%BULLET_MAX;
 		}
 	}
