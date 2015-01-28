@@ -86,7 +86,7 @@ public class Shooting : MonoBehaviour {
 		int queue_return;
 		if(bullet_first == bullet_last)
 		{
-			Debug.Log("弾が空です");
+			Debug.Log("Empty Bullet");
 			return BULLET_EMPTY;
 		}
 		else
