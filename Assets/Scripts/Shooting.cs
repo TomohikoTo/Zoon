@@ -17,6 +17,11 @@ public class Shooting : MonoBehaviour {
 		get{ return bl; }
 		set{ bl = value; }
 	}
+
+	//優先度
+	public float wight; 
+
+
 	public GameObject Shoot;
 	public Transform ShootSpawn;
 	public float InitialCT = 1.0f;
@@ -97,4 +102,7 @@ public class Shooting : MonoBehaviour {
 			return queue_return;
 		}
 	}
+
+
+
 }

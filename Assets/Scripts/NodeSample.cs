@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System.Text;
 public class NodeSample : MonoBehaviour {
 
 	class Node
@@ -16,12 +16,7 @@ public class NodeSample : MonoBehaviour {
 		public void display()
 			
 		{
-			
-			Console.Write("[");
-			
-			Console.Write(item);
-			
-			Console.Write("]");
+
 			
 		}
 		
@@ -116,4 +111,22 @@ public class NodeSample : MonoBehaviour {
 			}
 			
 		}
+
+		public void Inorder(Node Root)
+			
+		{
+			
+			if (Root != null)
+				
+			{
+				
+				Inorder(Root.leftc);
+
+				
+				Inorder(Root.rightc);
+				
+			}
+			
+		}
+	}
 }
