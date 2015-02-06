@@ -303,7 +303,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f55db5910acc67b429dbf7f265a5bc96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Shoot: {fileID: 175220, guid: 459c813f75dece544a535ea49872178f, type: 2}
+  shootWeight: 0
+  ShootOne: {fileID: 157658, guid: 9a188f9f4f1ccb643bdfaab4cab1974e, type: 2}
+  ShootTwo: {fileID: 197064, guid: 772828124de69a2489c666e90108f3a5, type: 2}
   ShootSpawn: {fileID: 406086}
   InitialCT: 1
   CoolTime: 1

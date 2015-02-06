@@ -36,7 +36,12 @@ public class Shooting : MonoBehaviour {
 >>>>>>> TomoBranch
 		set{ bl = value; }
 	}
-	public GameObject Shoot;
+
+	//優先度
+	public int shootWeight; 
+	
+	public GameObject ShootOne;
+	public GameObject ShootTwo;
 	public Transform ShootSpawn;
 	public float InitialCT = 1.0f;
 	public float CoolTime = 1.0f;
@@ -51,6 +56,7 @@ public class Shooting : MonoBehaviour {
 	//弾を撃つメソッド
 	public void shoot(){
 		CheckCT();
+<<<<<<< HEAD
 		if(Input.GetMouseButtonDown(0)){
 <<<<<<< HEAD
 
@@ -58,6 +64,15 @@ public class Shooting : MonoBehaviour {
 =======
 >>>>>>> TomoBranch
 			enqueue(CountPressShoot);
+=======
+		if(Input.GetKeyDown(KeyCode.A)){
+			shootWeight = 3;
+			enqueue(CountPressShoot , shootWeight);
+		}
+		if(Input.GetKeyDown(KeyCode.S)){
+			shootWeight = 5;
+			enqueue(CountPressShoot , shootWeight);
+>>>>>>> TomoBranch
 		}
 	}
 	//待機時間を確認
@@ -97,11 +112,15 @@ public class Shooting : MonoBehaviour {
 		CoolTime = InitialCT;
 	}
 	//キューにデータを追加する
+<<<<<<< HEAD
 	public void enqueue(int val){
 <<<<<<< HEAD
 
 		if( (bullet_last + 1) %BULLET_MAX ==  bullet_first)
 =======
+=======
+	public void enqueue(int cps, int sw){
+>>>>>>> TomoBranch
 		if( (bullet_last + 1) %BULLET_MAX == bullet_first)
 >>>>>>> TomoBranch
 		{
@@ -110,14 +129,21 @@ public class Shooting : MonoBehaviour {
 		}
 		else
 		{
+			Tree theTree = new Tree();
 			CountPressShoot++;
+			theTree.Insert(cps,sw);
+			theTree.Inorder(theTree.ReturnRoot());
 			/* キューに新しい値を入れる */
-			bullet[bullet_last]=val;
+			bullet[bullet_last]=sw;
 			/* queue_lastを1つ後ろにずらす。
+<<<<<<< HEAD
 <<<<<<< HEAD
   			もし，いちばん後ろの場合は，先頭にもってくる */
 =======
 もし，いちばん後ろの場合は，先頭にもってくる */
+>>>>>>> TomoBranch
+=======
+もし，いちばん後ろの場合は，先頭にもってくる　 */
 >>>>>>> TomoBranch
 			bullet_last=(bullet_last+1)%BULLET_MAX;
 		}
@@ -131,20 +157,163 @@ public class Shooting : MonoBehaviour {
 >>>>>>> TomoBranch
 		if(bullet_first == bullet_last)
 		{
-			Debug.Log("弾が空です");
+			Debug.Log("Empty Bullet");
 			return BULLET_EMPTY;
 		}
 		else
 		{
+
 			queue_return = bullet[bullet_first];
 <<<<<<< HEAD
 			
 =======
 >>>>>>> TomoBranch
 			bullet_first = (bullet_first + 1)%BULLET_MAX;
+<<<<<<< HEAD
 			Instantiate(Shoot, ShootSpawn.position, ShootSpawn.rotation); // 弾丸を生成
 
 			return queue_return;
 		}
 	}
 }
+=======
+			if(queue_return == 3){
+				Instantiate(ShootOne, ShootSpawn.position, ShootSpawn.rotation); // 弾丸を生成
+			}
+			if(queue_return == 5){
+				Instantiate(ShootTwo, ShootSpawn.position, ShootSpawn.rotation); // 弾丸を生成
+			}
+			return queue_return;
+		}
+	}
+
+
+	class Node
+		
+	{
+		
+		public int item;
+		
+		public Node leftc;
+		
+		public Node rightc;
+		
+		public void display()
+			
+		{
+			
+
+			Debug.Log(item);
+			
+
+			
+		}
+		
+	}
+	
+	class Tree
+		
+	{
+		
+		public Node root;
+		
+		public Tree()
+			
+		{ 
+			
+			root = null; 
+			
+		}
+		
+		public Node ReturnRoot()
+			
+		{
+			
+			return root;
+			
+		}
+		
+		public void Insert(int id, int weight)
+			
+		{
+			
+			Node newNode = new Node();
+			
+
+			newNode.item = weight;
+			newNode.item = id;
+			if (root == null)
+				
+				root = newNode;
+			
+			else
+				
+			{
+				
+				Node current = root;		
+				Node parent;	
+				while (true)
+					
+				{
+					parent = current;
+					
+					if (id < current.item)
+						
+					{
+						
+						current = current.leftc;
+						
+						if (current == null)
+							
+						{
+							
+							parent.leftc = newNode;
+							
+							return;
+							
+						}
+						
+					}
+					
+					else
+						
+					{
+						
+						current = current.rightc;
+						
+						if (current == null)
+							
+						{
+							
+							parent.rightc = newNode;
+							
+							return;
+							
+						}
+						
+					}
+					
+				}
+				
+			}
+			
+		}
+
+		//
+		public void Inorder(Node Root)
+			
+		{
+			
+			if (Root != null)
+				
+			{
+				Inorder(Root.leftc);		
+				Inorder(Root.rightc);
+
+			}
+
+		}
+	}
+
+}
+>>>>>>> TomoBranch
