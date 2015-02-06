@@ -1,22 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 public class Shooting : MonoBehaviour {
-<<<<<<< HEAD
 
-	static int BULLET_MAX = 10;		//キューの要領
-	int BULLET_EMPTY = -1;		//キューの空
-	int[] bullet = new int[BULLET_MAX]; //キューの構造
-
-=======
 	static int BULLET_MAX = 10; //キューの要領
 	int BULLET_EMPTY = -1; //キューの空
 	int[] bullet = new int[BULLET_MAX]; //キューの構造
->>>>>>> TomoBranch
+
 	//キューの先頭
 	private int bf;
 	public int bullet_first
 	{
-<<<<<<< HEAD
 		get{ return bf;  }
 		set{ bf = value; }
 	}
@@ -24,16 +17,7 @@ public class Shooting : MonoBehaviour {
 	//キューの末尾
 	private int bl;
 	int bullet_last{
-		get{ return bl;  }
-=======
-		get{ return bf; }
-		set{ bf = value; }
-	}
-	//キューの末尾
-	private int bl;
-	int bullet_last{
 		get{ return bl; }
->>>>>>> TomoBranch
 		set{ bl = value; }
 	}
 
@@ -56,15 +40,7 @@ public class Shooting : MonoBehaviour {
 	//弾を撃つメソッド
 	public void shoot(){
 		CheckCT();
-<<<<<<< HEAD
-		if(Input.GetMouseButtonDown(0)){
-<<<<<<< HEAD
 
-
-=======
->>>>>>> TomoBranch
-			enqueue(CountPressShoot);
-=======
 		if(Input.GetKeyDown(KeyCode.A)){
 			shootWeight = 3;
 			enqueue(CountPressShoot , shootWeight);
@@ -72,7 +48,7 @@ public class Shooting : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.S)){
 			shootWeight = 5;
 			enqueue(CountPressShoot , shootWeight);
->>>>>>> TomoBranch
+
 		}
 	}
 	//待機時間を確認
@@ -80,18 +56,11 @@ public class Shooting : MonoBehaviour {
 		//待機時間が初期状態なら実行
 		if(CoolTime == InitialCT ){
 			if(CountPressShoot > 0){
-<<<<<<< HEAD
-			//Instantiate(Shoot, ShootSpawn.position, ShootSpawn.rotation); // 弾丸を生成
-				CountPressShoot--;
-			dequeue();
-			
-			ReduceCT ();
-=======
 				//Instantiate(Shoot, ShootSpawn.position, ShootSpawn.rotation); // 弾丸を生成
 				CountPressShoot--;
 				dequeue();
 				ReduceCT ();
->>>>>>> TomoBranch
+
 			}
 		}
 		else if( 0.0 < CoolTime && CoolTime < InitialCT)
@@ -112,17 +81,11 @@ public class Shooting : MonoBehaviour {
 		CoolTime = InitialCT;
 	}
 	//キューにデータを追加する
-<<<<<<< HEAD
-	public void enqueue(int val){
-<<<<<<< HEAD
 
-		if( (bullet_last + 1) %BULLET_MAX ==  bullet_first)
-=======
-=======
 	public void enqueue(int cps, int sw){
->>>>>>> TomoBranch
+
 		if( (bullet_last + 1) %BULLET_MAX == bullet_first)
->>>>>>> TomoBranch
+
 		{
 			/* 現在配列の中身は，すべてキューの要素で埋まっている */
 			Debug.Log("Capacity Over");
@@ -136,25 +99,15 @@ public class Shooting : MonoBehaviour {
 			/* キューに新しい値を入れる */
 			bullet[bullet_last]=sw;
 			/* queue_lastを1つ後ろにずらす。
-<<<<<<< HEAD
-<<<<<<< HEAD
   			もし，いちばん後ろの場合は，先頭にもってくる */
-=======
-もし，いちばん後ろの場合は，先頭にもってくる */
->>>>>>> TomoBranch
-=======
-もし，いちばん後ろの場合は，先頭にもってくる　 */
->>>>>>> TomoBranch
+
 			bullet_last=(bullet_last+1)%BULLET_MAX;
 		}
 	}
 	//キューのデータを取り出す
 	public int dequeue(){
 		int queue_return;
-<<<<<<< HEAD
-		
-=======
->>>>>>> TomoBranch
+
 		if(bullet_first == bullet_last)
 		{
 			Debug.Log("Empty Bullet");
@@ -164,19 +117,9 @@ public class Shooting : MonoBehaviour {
 		{
 
 			queue_return = bullet[bullet_first];
-<<<<<<< HEAD
-			
-=======
->>>>>>> TomoBranch
-			bullet_first = (bullet_first + 1)%BULLET_MAX;
-<<<<<<< HEAD
-			Instantiate(Shoot, ShootSpawn.position, ShootSpawn.rotation); // 弾丸を生成
 
-			return queue_return;
-		}
-	}
-}
-=======
+			bullet_first = (bullet_first + 1)%BULLET_MAX;
+
 			if(queue_return == 3){
 				Instantiate(ShootOne, ShootSpawn.position, ShootSpawn.rotation); // 弾丸を生成
 			}
@@ -316,4 +259,3 @@ public class Shooting : MonoBehaviour {
 	}
 
 }
->>>>>>> TomoBranch
