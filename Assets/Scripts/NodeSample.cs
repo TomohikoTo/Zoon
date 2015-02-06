@@ -13,12 +13,7 @@ public class NodeSample : MonoBehaviour {
 		
 		public Node rightc;
 		
-		public void display()
-			
-		{
 
-			
-		}
 		
 	}
 
@@ -44,14 +39,15 @@ public class NodeSample : MonoBehaviour {
 			
 		}
 		
-		public void Insert(int id)
+		public void Insert(int id, int weight)
 			
 		{
 			
 			Node newNode = new Node();
 			
 			newNode.item = id;
-			
+			newNode.item = weight;
+
 			if (root == null)
 				
 				root = newNode;
@@ -70,7 +66,7 @@ public class NodeSample : MonoBehaviour {
 					
 					parent = current;
 					
-					if (id < current.item)
+					if (weight < current.item)
 						
 					{
 						

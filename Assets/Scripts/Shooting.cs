@@ -19,10 +19,10 @@ public class Shooting : MonoBehaviour {
 	}
 
 	//優先度
-	public float wight; 
-
-
-	public GameObject Shoot;
+	public int shootWeight; 
+	
+	public GameObject ShootOne;
+	public GameObject ShootTwo;
 	public Transform ShootSpawn;
 	public float InitialCT = 1.0f;
 	public float CoolTime = 1.0f;
@@ -37,7 +37,12 @@ public class Shooting : MonoBehaviour {
 	//弾を撃つメソッド
 	public void shoot(){
 		CheckCT();
-		if(Input.GetMouseButtonDown(0)){
+		if(Input.GetKeyDown(KeyCode.A)){
+			shootWeight = 3;
+			enqueue(CountPressShoot);
+		}
+		if(Input.GetKeyDown(KeyCode.S)){
+			shootWeight = 5;
 			enqueue(CountPressShoot);
 		}
 	}
@@ -78,9 +83,12 @@ public class Shooting : MonoBehaviour {
 		}
 		else
 		{
+			Tree theTree = new Tree();
 			CountPressShoot++;
+			theTree.Insert(CountPressShoot,shootWeight);
+			theTree.Inorder(theTree.ReturnRoot());
 			/* キューに新しい値を入れる */
-			bullet[bullet_last]=val;
+			bullet[bullet_last]=shootWeight;
 			/* queue_lastを1つ後ろにずらす。
 もし，いちばん後ろの場合は，先頭にもってくる　 */
 			bullet_last=(bullet_last+1)%BULLET_MAX;
@@ -96,13 +104,145 @@ public class Shooting : MonoBehaviour {
 		}
 		else
 		{
+
 			queue_return = bullet[bullet_first];
 			bullet_first = (bullet_first + 1)%BULLET_MAX;
-			Instantiate(Shoot, ShootSpawn.position, ShootSpawn.rotation); // 弾丸を生成
+			if(queue_return == 3){
+				Instantiate(ShootOne, ShootSpawn.position, ShootSpawn.rotation); // 弾丸を生成
+			}
+			if(queue_return == 5){
+				Instantiate(ShootTwo, ShootSpawn.position, ShootSpawn.rotation); // 弾丸を生成
+			}
 			return queue_return;
 		}
 	}
 
 
+	class Node
+		
+	{
+		
+		public int item;
+		
+		public Node leftc;
+		
+		public Node rightc;
+		
+		public void display()
+			
+		{
+			
+
+			Debug.Log(item);
+			
+
+			
+		}
+		
+	}
+	
+	class Tree
+		
+	{
+		
+		public Node root;
+		
+		public Tree()
+			
+		{ 
+			
+			root = null; 
+			
+		}
+		
+		public Node ReturnRoot()
+			
+		{
+			
+			return root;
+			
+		}
+		
+		public void Insert(int id, int weight)
+			
+		{
+			
+			Node newNode = new Node();
+			
+
+			newNode.item = weight;
+			newNode.item = id;
+			if (root == null)
+				
+				root = newNode;
+			
+			else
+				
+			{
+				
+				Node current = root;		
+				Node parent;	
+				while (true)
+					
+				{
+					parent = current;
+					
+					if (id < current.item)
+						
+					{
+						
+						current = current.leftc;
+						
+						if (current == null)
+							
+						{
+							
+							parent.leftc = newNode;
+							
+							return;
+							
+						}
+						
+					}
+					
+					else
+						
+					{
+						
+						current = current.rightc;
+						
+						if (current == null)
+							
+						{
+							
+							parent.rightc = newNode;
+							
+							return;
+							
+						}
+						
+					}
+					
+				}
+				
+			}
+			
+		}
+
+		//
+		public void Inorder(Node Root)
+			
+		{
+			
+			if (Root != null)
+				
+			{
+				Inorder(Root.leftc);		
+				Inorder(Root.rightc);
+
+			}
+
+		}
+	}
 
 }
