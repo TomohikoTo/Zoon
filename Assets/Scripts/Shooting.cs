@@ -39,11 +39,11 @@ public class Shooting : MonoBehaviour {
 		CheckCT();
 		if(Input.GetKeyDown(KeyCode.A)){
 			shootWeight = 3;
-			enqueue(CountPressShoot);
+			enqueue(CountPressShoot , shootWeight);
 		}
 		if(Input.GetKeyDown(KeyCode.S)){
 			shootWeight = 5;
-			enqueue(CountPressShoot);
+			enqueue(CountPressShoot , shootWeight);
 		}
 	}
 	//待機時間を確認
@@ -75,7 +75,7 @@ public class Shooting : MonoBehaviour {
 		CoolTime = InitialCT;
 	}
 	//キューにデータを追加する
-	public void enqueue(int val){
+	public void enqueue(int cps, int sw){
 		if( (bullet_last + 1) %BULLET_MAX == bullet_first)
 		{
 			/* 現在配列の中身は，すべてキューの要素で埋まっている */
@@ -85,10 +85,10 @@ public class Shooting : MonoBehaviour {
 		{
 			Tree theTree = new Tree();
 			CountPressShoot++;
-			theTree.Insert(CountPressShoot,shootWeight);
+			theTree.Insert(cps,sw);
 			theTree.Inorder(theTree.ReturnRoot());
 			/* キューに新しい値を入れる */
-			bullet[bullet_last]=shootWeight;
+			bullet[bullet_last]=sw;
 			/* queue_lastを1つ後ろにずらす。
 もし，いちばん後ろの場合は，先頭にもってくる　 */
 			bullet_last=(bullet_last+1)%BULLET_MAX;
