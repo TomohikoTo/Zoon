@@ -1,16 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 public class Shooting : MonoBehaviour {
+
 	static int BULLET_MAX = 10; //キューの要領
 	int BULLET_EMPTY = -1; //キューの空
 	int[] bullet = new int[BULLET_MAX]; //キューの構造
+
 	//キューの先頭
 	private int bf;
 	public int bullet_first
 	{
-		get{ return bf; }
+		get{ return bf;  }
 		set{ bf = value; }
 	}
+
 	//キューの末尾
 	private int bl;
 	int bullet_last{
@@ -37,6 +40,7 @@ public class Shooting : MonoBehaviour {
 	//弾を撃つメソッド
 	public void shoot(){
 		CheckCT();
+
 		if(Input.GetKeyDown(KeyCode.A)){
 			shootWeight = 3;
 			enqueue(CountPressShoot , shootWeight);
@@ -44,6 +48,7 @@ public class Shooting : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.S)){
 			shootWeight = 5;
 			enqueue(CountPressShoot , shootWeight);
+
 		}
 	}
 	//待機時間を確認
@@ -55,6 +60,7 @@ public class Shooting : MonoBehaviour {
 				CountPressShoot--;
 				dequeue();
 				ReduceCT ();
+
 			}
 		}
 		else if( 0.0 < CoolTime && CoolTime < InitialCT)
@@ -75,8 +81,11 @@ public class Shooting : MonoBehaviour {
 		CoolTime = InitialCT;
 	}
 	//キューにデータを追加する
+
 	public void enqueue(int cps, int sw){
+
 		if( (bullet_last + 1) %BULLET_MAX == bullet_first)
+
 		{
 			/* 現在配列の中身は，すべてキューの要素で埋まっている */
 			Debug.Log("Capacity Over");
@@ -90,13 +99,15 @@ public class Shooting : MonoBehaviour {
 			/* キューに新しい値を入れる */
 			bullet[bullet_last]=sw;
 			/* queue_lastを1つ後ろにずらす。
-もし，いちばん後ろの場合は，先頭にもってくる　 */
+  			もし，いちばん後ろの場合は，先頭にもってくる */
+
 			bullet_last=(bullet_last+1)%BULLET_MAX;
 		}
 	}
 	//キューのデータを取り出す
 	public int dequeue(){
 		int queue_return;
+
 		if(bullet_first == bullet_last)
 		{
 			Debug.Log("Empty Bullet");
@@ -106,7 +117,9 @@ public class Shooting : MonoBehaviour {
 		{
 
 			queue_return = bullet[bullet_first];
+
 			bullet_first = (bullet_first + 1)%BULLET_MAX;
+
 			if(queue_return == 3){
 				Instantiate(ShootOne, ShootSpawn.position, ShootSpawn.rotation); // 弾丸を生成
 			}
@@ -187,7 +200,7 @@ public class Shooting : MonoBehaviour {
 				{
 					parent = current;
 					
-					if (id < current.item)
+					if (weight < current.item)
 						
 					{
 						
