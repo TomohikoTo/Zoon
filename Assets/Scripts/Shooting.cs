@@ -200,7 +200,7 @@ public class Shooting : MonoBehaviour {
 				{
 					parent = current;
 					
-					if (id < current.item)
+					if (weight < current.item)
 						
 					{
 						
