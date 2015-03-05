@@ -2,187 +2,186 @@
 using System.Collections;
 
 public class BMSLoder : MonoBehaviour {
-
-
-		bool ok = true;
-		string    lPlayer;                // プレイモード
-		string    mGenre;            // データのジャンル
-		string    mTitle;            // データのタイトル
-		string    mArtist;           // データの製作者
-		string    fBpm;                   // データのテンポ（初期値は130）
-		string    mMidifile;         // バックグラウンドで流すMIDIファイル
-		string    lPlaylevel;             // データの難易度
-		string    lLank;                  // データの判定ランク
-		string    lWavVol;                // 音量を元の何％にするか
-		string    lTotal;                 // ゲージの増量を設定
-		string    mStagePic; 
-		string	  mWav;		//wavデータ
-		string	  mBmp;		//bmpファイル
-		string player;
-		string genre;
-		int comNum;
-		// コマンドの番号を返す
-		int GetHeadCommand( string s )
-		{
-			
-			//	com[1] = "GENRE\0".ToCharArray();
-			string[] command = {
-				"PLAYER",
-				"GENRE",
-				"TITLE",
-				"ARTIST",
-				"BPM",
-				"MIDIFILE",
-				"PLAYLEVEL",
-				"RANK",
-				"VOLWAV",
-				"TOTAL",
-				"STAGEFILE",
-				"WAV",
-				"BMP",
-			};
-			
-			
-			// 検索ルーチン
-			int i;
-			for(i=0;i<13;i++) {
-				if( 0 <= s.IndexOf(command[i])) {
-					
-					return i;       // コマンドならその番号を返す
-				}
-			}
-			
-			// オブジェ配置なら -1
-			return -1;
-		}
-		string SetHeadCommand(string s){
-			
-			int ind = s.IndexOf(" ");
-			
-			return	s.Substring(ind + 1);
-			
-		}
-		// Use this for initialization
-		void Start () {
-			
-		}
+	bool ok = true;
+	string    lPlayer;                // プレイモード
+	string    mGenre;            // データのジャンル
+	string    mTitle;            // データのタイトル
+	string    mArtist;           // データの製作者
+	string    fBpm;                   // データのテンポ（初期値は130）
+	string    mMidifile;         // バックグラウンドで流すMIDIファイル
+	string    lPlaylevel;             // データの難易度
+	string    lLank;                  // データの判定ランク
+	string    lWavVol;                // 音量を元の何％にするか
+	string    lTotal;                 // ゲージの増量を設定
+	string    mStagePic; 
+	string	  mWav;		//wavデータ
+	string	  mBmp;		//bmpファイル
+	string player;
+	string genre;
+	int comNum;
+	// コマンドの番号を返す
+	int GetHeadCommand( string s )
+	{
 		
-		// Update is called once per frame
-		void Update () {
-			GetHeader(  );
-			LoadBmsData( );
-			
-		}
+		//	com[1] = "GENRE\0".ToCharArray();
+		string[] command = {
+			"PLAYER",
+			"GENRE",
+			"TITLE",
+			"ARTIST",
+			"BPM",
+			"MIDIFILE",
+			"PLAYLEVEL",
+			"RANK",
+			"VOLWAV",
+			"TOTAL",
+			"STAGEFILE",
+			"WAV",
+			"BMP",
+		};
 		
-		//ヘッダ情報の読み取り処理
-		public void GetHeader(  ){
-			// StreamReader の新しいインスタンスを生成する
-			System.IO.StreamReader bmsf = (
-				new System.IO.StreamReader(@"test.bms", System.Text.Encoding.Default)
-				);
-			
-			
-			if( ok ){
-				// 読み込みできる文字がなくなるまで繰り返す
-				while (bmsf.Peek() >= 0) {
-					// ファイルを 1 行ずつ読み込む
-					string bmsTxt = bmsf.ReadLine();
-					
-					// 読み込んだものを追加で格納する
-					
-					if( bmsTxt != ""){ 
-						//char[] chTxt = stBuffer.ToCharArray();
-						comNum = GetHeadCommand(bmsTxt);
-						string it;
-						it = SetHeadCommand(bmsTxt);
-						switch(comNum){
-							
-						case 0: // PLAYER
-							lPlayer = it ;
-							Debug.Log (lPlayer);
-							break;
-							
-						case 1: // GENRE
-							mGenre = it ;
-							Debug.Log (mGenre);
-							break;
-							
-						case 2: // TITLE
-							mTitle = it ;
-							Debug.Log (mTitle);
-							break;
-							
-						case 3: // ARTIST
-							mArtist = it ;
-							Debug.Log (mArtist);
-							break;
-							
-						case 4: // BPM
-							fBpm = it ;
-							Debug.Log (fBpm);
-							break;
-							
-						case 5: // MIDIFILE
-							mMidifile = it ;
-							Debug.Log (mMidifile);
-							break;
-							
-						case 6: // PLAYLEVEL
-							lPlaylevel = it ;
-							Debug.Log (lPlaylevel);
-							break;
-							
-						case 7: // RANK
-							lLank = it ;
-							Debug.Log (lLank);
-							break;
-							
-						case 8: // VOLWAV
-							lWavVol = it ;
-							Debug.Log (lWavVol);
-							break;
-							
-						case 9: // TOTAL
-							lTotal = it ;
-							Debug.Log (lTotal);
-							break;
-							
-						case 10: // StageFile
-							mStagePic = it ;
-							Debug.Log (mStagePic);
-							break;
-							
-						case 11: // WAV
-							mGenre = it ;
-							Debug.Log (mGenre);
-							break;
-							
-						case 12: // BMP
-							mWav = it ;
-							Debug.Log (mWav);
-							break;
-							
-						case 13: // GENRE
-							mBmp = it ;
-							Debug.Log (mBmp);
-							break;
-						}
-						
-						
-					}
-				}
+		
+		// 検索ルーチン
+		int i;
+		for(i=0;i<13;i++) {
+			if( 0 <= s.IndexOf(command[i])) {
 				
+				return i;       // コマンドならその番号を返す
 			}
-			ok = false;
-			// cReader を閉じる (正しくは オブジェクトの破棄を保証する を参照)
-			bmsf.Close();
-			
-			// 結果を表示する
 		}
 		
+		// オブジェ配置なら -1
+		return -1;
+	}
+	string SetHeadCommand(string s){
 		
-		public void LoadBmsData( )
-		{
+		int ind = s.IndexOf("#");
+		
+		return	s.Substring(ind + 1);
+		
+	}
+	// Use this for initialization
+	void Start () {
+		
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		GetHeader(  );
+		LoadBmsData( );
+		ok = false;
+	}
+	
+	//ヘッダ情報の読み取り処理
+	public void GetHeader(  ){
+		// StreamReader の新しいインスタンスを生成する
+		System.IO.StreamReader bmsf = (
+			new System.IO.StreamReader(@"test.bms", System.Text.Encoding.Default)
+			);
+		
+		
+		if( ok ){
+			// 読み込みできる文字がなくなるまで繰り返す
+			while (bmsf.Peek() >= 0) {
+				// ファイルを 1 行ずつ読み込む
+				string bmsTxt = bmsf.ReadLine();
+				
+				// 読み込んだものを追加で格納する
+				
+				if( bmsTxt != ""){ 
+					//char[] chTxt = stBuffer.ToCharArray();
+					comNum = GetHeadCommand(bmsTxt);
+					string it;
+					it = SetHeadCommand(bmsTxt);
+					switch(comNum){
+						
+					case 0: // PLAYER
+						lPlayer = it ;
+						Debug.Log (lPlayer);
+						break;
+						
+					case 1: // GENRE
+						mGenre = it ;
+						Debug.Log (mGenre);
+						break;
+						
+					case 2: // TITLE
+						mTitle = it ;
+						Debug.Log (mTitle);
+						break;
+						
+					case 3: // ARTIST
+						mArtist = it ;
+						Debug.Log (mArtist);
+						break;
+						
+					case 4: // BPM
+						fBpm = it ;
+						Debug.Log (fBpm);
+						break;
+						
+					case 5: // MIDIFILE
+						mMidifile = it ;
+						Debug.Log (mMidifile);
+						break;
+						
+					case 6: // PLAYLEVEL
+						lPlaylevel = it ;
+						Debug.Log (lPlaylevel);
+						break;
+						
+					case 7: // RANK
+						lLank = it ;
+						Debug.Log (lLank);
+						break;
+						
+					case 8: // VOLWAV
+						lWavVol = it ;
+						Debug.Log (lWavVol);
+						break;
+						
+					case 9: // TOTAL
+						lTotal = it ;
+						Debug.Log (lTotal);
+						break;
+						
+					case 10: // StageFile
+						mStagePic = it ;
+						Debug.Log (mStagePic);
+						break;
+						
+					case 11: // WAV
+						mGenre = it ;
+						Debug.Log (mGenre);
+						break;
+						
+					case 12: // BMP
+						mWav = it ;
+						Debug.Log (mWav);
+						break;
+						
+					case 13: // GENRE
+						mBmp = it ;
+						Debug.Log (mBmp);
+						break;
+					}
+					
+					
+				}
+			}
+			
+		}
+		
+		// cReader を閉じる (正しくは オブジェクトの破棄を保証する を参照)
+		bmsf.Close();
+		
+		// 結果を表示する
+	}
+	
+	
+	public void LoadBmsData( )
+	{
+		if( ok ){
 			// StreamReader の新しいインスタンスを生成する
 			System.IO.StreamReader bmsf = (
 				new System.IO.StreamReader(@"test.bms", System.Text.Encoding.Default)
@@ -190,7 +189,7 @@ public class BMSLoder : MonoBehaviour {
 			
 			string dataTxt;
 			int ind;		//":"のIndex取得用変数
-			long data;     // パラメータ部分の文字列のコピー用
+			int[] data;     // パラメータ部分の文字列のコピー用
 			int com;             // コマンド番号
 			char num;         // 数字変換汎用バッファ
 			int lines;           // 小節番号
@@ -206,9 +205,9 @@ public class BMSLoder : MonoBehaviour {
 					lines = int.Parse(bmsTxt.Substring(1,3));
 					channel = int.Parse(bmsTxt.Substring(4,2));
 					dataTxt = bmsTxt.Substring(ind + 1);
-					Debug.Log( "lines" + lines);
-					Debug.Log("channel" +channel);
-					Debug.Log("dataTxt" +dataTxt);
+					Debug.Log(  lines + "小節目" );
+					Debug.Log(channel + "チャンネル" );
+					Debug.Log( dataTxt + "パラメータ");
 					if( channel == 2){
 						changeLines = long.Parse (dataTxt);
 					}
@@ -218,8 +217,18 @@ public class BMSLoder : MonoBehaviour {
 					if( channel != 2 && dataTxt.Length%2== 0 )
 					{
 						// 実際のデータの追加
-						length = dataTxt.Length;
+						length = dataTxt.Length / 2;
 						tick = 10000 / length;
+						Debug.Log("音符の長さ" + tick);
+						for( int i = 0; i< length; i++)
+						{
+							data = new int[length];
+							string hexTxt;
+							hexTxt = dataTxt.Substring( i * 2,2);
+							hex = Convert.ToInt32(hexTxt, 16);
+							data[i] = hex;
+							Debug.Log("data" + i + "番目" +data[i]);
+						}
 						//data = long.Parse (dataTxt);
 						Debug.Log("length" +length);
 						//	Debug.Log("data" +data);
@@ -230,29 +239,11 @@ public class BMSLoder : MonoBehaviour {
 			bmsf.Close();
 			
 		}
-		
-		
-		
-		int GetChannel(string ch)
-		{
-			int i; 
-			if( 0 <= ch.IndexOf(":")) {
-				return	i = int.Parse(ch.Substring(4, 2));
-			}
-			return -1;
-			
-		}
-		
-		long GetNote(string no)
-		{
-			long i; 
-			int ind = no.IndexOf(":");
-			if( 0 <= ind) {
-				return	i = long.Parse(no.Substring(ind));
-			}
-			return -1;
-			
-		}
 	}
+	
+	
+	
+	
+	
 
 }
