@@ -2,6 +2,8 @@
 using System;
 
 public class BMSLoder : MonoBehaviour {
+	
+	BMSData BD;		//BMSデータ臨時保存用のデータスクリプト
 	bool ok = true;
 	string    lPlayer;                // プレイモード
 	string    mGenre;            // データのジャンル
@@ -18,7 +20,30 @@ public class BMSLoder : MonoBehaviour {
 	string	  mBmp;		//bmpファイル
 	string player;
 	string genre;
+	
+	string dataTxt;
+	int ind;		//":"のIndex取得用変数
+	public int[] data;     // パラメータ部分の文字列のコピー用
+	int lines;           // 小節番号
+	int channel;         // チャンネル番号
+	int length;          // 文字列の長さ
+	int hex;             // １６進を１０進に変換した値
+	int tick;            // １音符の長さ
+	long changeLines; 	//小節の長さを定義倍用の値
 	int comNum;
+	
+	// Use this for initialization
+	void Start () {
+		BD = GetComponent<BMSData>();
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		/*	GetHeader(  );
+		LoadBmsData( );
+		ok = false;
+	*/	
+	}
 	// コマンドの番号を返す
 	int GetHeadCommand( string s )
 	{
@@ -60,17 +85,7 @@ public class BMSLoder : MonoBehaviour {
 		return	s.Substring(ind + 1);
 		
 	}
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
-	// Update is called once per frame
-	void Update () {
-		GetHeader(  );
-		LoadBmsData( );
-		ok = false;
-	}
 	
 	//ヘッダ情報の読み取り処理
 	public void GetHeader(  ){
@@ -187,17 +202,7 @@ public class BMSLoder : MonoBehaviour {
 				new System.IO.StreamReader(@"test.bms", System.Text.Encoding.Default)
 				);
 			
-			string dataTxt;
-			int ind;		//":"のIndex取得用変数
-			int[] data;     // パラメータ部分の文字列のコピー用
-			int com;             // コマンド番号
-			char num;         // 数字変換汎用バッファ
-			int lines;           // 小節番号
-			int channel;         // チャンネル番号
-			int length;          // 文字列の長さ
-			int hex;             // １６進を１０進に変換した値
-			int tick;            // １音符の長さ
-			long changeLines; 	//小節の長さを定義倍用の値
+			
 			while (bmsf.Peek() >= 0) {
 				string bmsTxt = bmsf.ReadLine();
 				ind = bmsTxt.IndexOf(":");
@@ -227,6 +232,7 @@ public class BMSLoder : MonoBehaviour {
 							hexTxt = dataTxt.Substring( i * 2,2);
 							hex = Convert.ToInt32(hexTxt, 16);
 							data[i] = hex;
+							BD.dataList.Add(data[i]);
 							Debug.Log("data" + i + "番目" +data[i]);
 						}
 						//data = long.Parse (dataTxt);
@@ -247,3 +253,4 @@ public class BMSLoder : MonoBehaviour {
 	
 
 }
+
