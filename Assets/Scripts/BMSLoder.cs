@@ -3,23 +3,26 @@ using System;
 
 public class BMSLoder : MonoBehaviour {
 	
-	BMSData BD;		//BMSデータ臨時保存用のデータスクリプト
+	BMSData BD;		//BMSデータ臨時保存用のデータスクリプ
 	bool ok = true;
-	string    lPlayer;                // プレイモード
-	string    mGenre;            // データのジャンル
-	string    mTitle;            // データのタイトル
-	string    mArtist;           // データの製作者
-	string    fBpm;                   // データのテンポ（初期値は130）
-	string    mMidifile;         // バックグラウンドで流すMIDIファイル
-	string    lPlaylevel;             // データの難易度
-	string    lLank;                  // データの判定ランク
-	string    lWavVol;                // 音量を元の何％にするか
-	string    lTotal;                 // ゲージの増量を設定
-	string    mStagePic; 
-	string	  mWav;		//wavデータ
-	string	  mBmp;		//bmpファイル
-	string player;
-	string genre;
+	struct BMSHeader{
+	
+		string    lPlayer{set; get;}                // プレイモード
+		string    mGenre{set; get;}             // データのジャンル
+		string    mTitle{set; get;}             // データのタイトル
+		string    mArtist{set; get;}            // データの製作者
+		string    fBpm{set; get;}                    // データのテンポ（初期値は130）
+		string    mMidifile{set; get;}          // バックグラウンドで流すMIDIファイル
+		string    lPlaylevel{set; get;}              // データの難易度
+		string    lLank{set; get;}                   // データの判定ランク
+		string    lWavVol{set; get;}                 // 音量を元の何％にするか
+		string    lTotal{set; get;}                  // ゲージの増量を設定
+		string    mStagePic{set; get;}  
+		string	  mWav{set; get;} 		//wavデータ
+		string	  mBmp{set; get;} 		//bmpファイル
+		string player{set; get;} ;
+		string genre{set; get;} ;
+	}
 	
 	string dataTxt;
 	int ind;		//":"のIndex取得用変数
