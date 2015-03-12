@@ -1,28 +1,27 @@
 ﻿using UnityEngine;
 using System;
+namespace zoon{
 
 public class BMSLoder : MonoBehaviour {
 	
 	BMSData BD;		//BMSデータ臨時保存用のデータスクリプ
 	bool ok = true;
-	struct BMSHeader{
-	
-		string    lPlayer{set; get;}                // プレイモード
-		string    mGenre{set; get;}             // データのジャンル
-		string    mTitle{set; get;}             // データのタイトル
-		string    mArtist{set; get;}            // データの製作者
-		string    fBpm{set; get;}                    // データのテンポ（初期値は130）
-		string    mMidifile{set; get;}          // バックグラウンドで流すMIDIファイル
-		string    lPlaylevel{set; get;}              // データの難易度
-		string    lLank{set; get;}                   // データの判定ランク
-		string    lWavVol{set; get;}                 // 音量を元の何％にするか
-		string    lTotal{set; get;}                  // ゲージの増量を設定
-		string    mStagePic{set; get;}  
-		string	  mWav{set; get;} 		//wavデータ
-		string	  mBmp{set; get;} 		//bmpファイル
-		string player{set; get;} ;
-		string genre{set; get;} ;
-	}
+	public string    lPlayer{set; get;}                // プレイモード
+	public string    mGenre{set; get;}             // データのジャンル
+	public string    mTitle{set; get;}             // データのタイトル
+	public string    mArtist{set; get;}            // データの製作者
+	public string    fBpm{set; get;}                    // データのテンポ（初期値は130）
+	public string    mMidifile{set; get;}          // バックグラウンドで流すMIDIファイル
+	public string    lPlaylevel{set; get;}              // データの難易度
+	public string    lLank{set; get;}                   // データの判定ランク
+	public string    lWavVol{set; get;}                 // 音量を元の何％にするか
+	public string    lTotal{set; get;}                  // ゲージの増量を設定
+	public string    mStagePic{set; get;}  
+	public string	  mWav{set; get;} 		//wavデータ
+	public string	  mBmp{set; get;} 		//bmpファイル
+	public string player{set; get;} 
+	public string genre{set; get;} 
+
 	
 	string dataTxt;
 	int ind;		//":"のIndex取得用変数
@@ -96,7 +95,7 @@ public class BMSLoder : MonoBehaviour {
 		System.IO.StreamReader bmsf = (
 			new System.IO.StreamReader(@"test.bms", System.Text.Encoding.Default)
 			);
-		
+
 		
 		if( ok ){
 			// 読み込みできる文字がなくなるまで繰り返す
@@ -250,10 +249,7 @@ public class BMSLoder : MonoBehaviour {
 		}
 	}
 	
-	
-	
-	
-	
 
 }
 
+}

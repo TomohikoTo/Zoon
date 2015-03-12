@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+namespace zoon{
 public class PlayManager : MonoBehaviour {
 	public GameObject KeyObject;
 	public Vector3 spawnValues;
@@ -50,4 +50,5 @@ public class PlayManager : MonoBehaviour {
 		
 		ok = false;
 	}
+}
 }
