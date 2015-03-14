@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+namespace zoon{
 public class BMSLoder : MonoBehaviour {
 
 
@@ -256,3 +257,4 @@ public class BMSLoder : MonoBehaviour {
 	}
 
 }
+
