@@ -1,12 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+<<<<<<< HEAD
+--- !u!1 &161054
+=======
 --- !u!1 &106082
+>>>>>>> TomoBranch
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
+<<<<<<< HEAD
+  - 4: {fileID: 461054}
+  - 33: {fileID: 3361054}
+  - 23: {fileID: 2361054}
+  m_Layer: 0
+  m_Name: default
+  m_TagString: Untagged
+=======
   - 4: {fileID: 406082}
   - 95: {fileID: 9506086}
   - 114: {fileID: 11406086}
@@ -16,47 +28,89 @@ GameObject:
   m_Layer: 0
   m_Name: mouse
   m_TagString: PlayerClone
+>>>>>>> TomoBranch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
+--- !u!1 &161056
+=======
 --- !u!1 &106084
+>>>>>>> TomoBranch
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
+<<<<<<< HEAD
+  - 4: {fileID: 461056}
+  - 95: {fileID: 9561054}
+  - 114: {fileID: 11461056}
+  - 114: {fileID: 11461054}
+  - 54: {fileID: 5461054}
+  - 65: {fileID: 6561054}
+  m_Layer: 0
+  m_Name: mouse
+  m_TagString: PlayerClone
+=======
   - 4: {fileID: 406084}
   - 33: {fileID: 3306086}
   - 23: {fileID: 2306086}
   m_Layer: 0
   m_Name: default
   m_TagString: Untagged
+>>>>>>> TomoBranch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
+--- !u!1 &161058
+=======
 --- !u!1 &106086
+>>>>>>> TomoBranch
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
+<<<<<<< HEAD
+  - 4: {fileID: 461058}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: SpawnPoint
+=======
   - 4: {fileID: 406086}
   m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
+>>>>>>> TomoBranch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
+--- !u!4 &461054
+=======
 --- !u!4 &406082
+>>>>>>> TomoBranch
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD
+  m_GameObject: {fileID: 161054}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -2.73000002}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 461056}
+  m_RootOrder: 1
+--- !u!4 &461056
+=======
   m_GameObject: {fileID: 106082}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
@@ -67,10 +121,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &406084
+>>>>>>> TomoBranch
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD
+  m_GameObject: {fileID: 161056}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 461058}
+  - {fileID: 461054}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &461058
+=======
   m_GameObject: {fileID: 106084}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
@@ -79,23 +146,38 @@ Transform:
   m_Father: {fileID: 406082}
   m_RootOrder: 0
 --- !u!4 &406086
+>>>>>>> TomoBranch
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD
+  m_GameObject: {fileID: 161058}
+=======
   m_GameObject: {fileID: 106086}
+>>>>>>> TomoBranch
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
+<<<<<<< HEAD
+  m_Father: {fileID: 461056}
+  m_RootOrder: 0
+--- !u!23 &2361054
+=======
   m_Father: {fileID: 406082}
   m_RootOrder: 1
 --- !u!23 &2306086
+>>>>>>> TomoBranch
 Renderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD
+  m_GameObject: {fileID: 161054}
+=======
   m_GameObject: {fileID: 106084}
+>>>>>>> TomoBranch
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -110,19 +192,33 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
+<<<<<<< HEAD
+--- !u!33 &3361054
+=======
 --- !u!33 &3306086
+>>>>>>> TomoBranch
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD
+  m_GameObject: {fileID: 161054}
+  m_Mesh: {fileID: 4300000, guid: 4f88024f9fe8a944db34ecc4e419b3a1, type: 3}
+--- !u!54 &5461054
+=======
   m_GameObject: {fileID: 106084}
   m_Mesh: {fileID: 4300000, guid: 4f88024f9fe8a944db34ecc4e419b3a1, type: 3}
 --- !u!54 &5468434
+>>>>>>> TomoBranch
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD
+  m_GameObject: {fileID: 161056}
+=======
   m_GameObject: {fileID: 106082}
+>>>>>>> TomoBranch
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -130,27 +226,46 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
+<<<<<<< HEAD
+  m_Constraints: 80
+  m_CollisionDetection: 0
+--- !u!65 &6561054
+=======
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!65 &6525928
+>>>>>>> TomoBranch
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD
+  m_GameObject: {fileID: 161056}
+=======
   m_GameObject: {fileID: 106082}
+>>>>>>> TomoBranch
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5, z: 1.5}
+<<<<<<< HEAD
+  m_Center: {x: 0, y: 0, z: -3}
+--- !u!95 &9561054
+=======
   m_Center: {x: 0, y: 0, z: -2}
 --- !u!95 &9506086
+>>>>>>> TomoBranch
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD
+  m_GameObject: {fileID: 161056}
+=======
   m_GameObject: {fileID: 106082}
+>>>>>>> TomoBranch
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 4f88024f9fe8a944db34ecc4e419b3a1, type: 3}
   m_Controller: {fileID: 0}
@@ -159,11 +274,29 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+<<<<<<< HEAD
+--- !u!114 &11461054
+=======
 --- !u!114 &11406086
+>>>>>>> TomoBranch
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD
+  m_GameObject: {fileID: 161056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55f75a9d9d19566499e1edff1b4a37b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Shoot: {fileID: 145480, guid: c0206aa34ae41a94aa0f025ec8e97595, type: 2}
+  ShootSpawn: {fileID: 461058}
+  InitialCT: 1
+  CoolTime: 1
+  CountPressShoot: 0
+--- !u!114 &11461056
+=======
   m_GameObject: {fileID: 106082}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -178,11 +311,16 @@ MonoBehaviour:
   CoolTime: 1
   CountPressShoot: 0
 --- !u!114 &11488268
+>>>>>>> TomoBranch
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD
+  m_GameObject: {fileID: 161056}
+=======
   m_GameObject: {fileID: 106082}
+>>>>>>> TomoBranch
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f331806b8d04b1f4e90e75ce40650d3e, type: 3}
@@ -204,6 +342,10 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
+<<<<<<< HEAD
+  m_RootGameObject: {fileID: 161056}
+=======
   m_RootGameObject: {fileID: 106082}
+>>>>>>> TomoBranch
   m_IsPrefabParent: 1
   m_IsExploded: 1
