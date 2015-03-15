@@ -33,7 +33,7 @@ public class PlayManager : MonoBehaviour {
 		
 		if(ok){
 			BMS.LoadBmsData();
-			spawnCount = BD.dataList.Count;
+			spawnCount = BD.DataList.Count;
 		}
 		
 		Vector3 spawnPosition = new Vector3 ( spawnValues.x, spawnValues.y, spawnValues.z);

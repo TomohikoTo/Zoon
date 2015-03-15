@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System;
-namespace zoon{
+
 
 namespace zoon{
 public class BMSLoder : MonoBehaviour {
@@ -235,7 +235,7 @@ public class BMSLoder : MonoBehaviour {
 							hexTxt = dataTxt.Substring( i * 2,2);
 							hex = Convert.ToInt32(hexTxt, 16);
 							data[i] = hex;
-							BD.dataList.Add(data[i]);
+							BD.DataList.Add(data[i]);
 							Debug.Log("data" + i + "番目" +data[i]);
 						}
 						//data = long.Parse (dataTxt);
@@ -254,4 +254,5 @@ public class BMSLoder : MonoBehaviour {
 }
 
 }
+
 
