@@ -4,7 +4,9 @@ using System.Collections.Generic;
 
 namespace zoon{
 public class BMSData : MonoBehaviour {
-	int ind;		//":"のIndex取得用変数
+
+	//読み込んだBMSデータを一時保管するための変数群
+	#region
 	public int[] _data;					// パラメータ部分の文字列のコピー
 	public int[] Data
 	{
@@ -53,6 +55,8 @@ public class BMSData : MonoBehaviour {
 		get{ return _dataList;}
 		set{ _dataList = value;}
 	}
+
+	#endregion
 	//PlayManagerで使用するための臨時BMSデータ
 	
 	// Use this for initialization
